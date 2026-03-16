@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.2.0] - 2026-03-16
+
+### Added
+- Integrated official **Prism Business Initiatives** logo in header and footer.
+- Applied brand color scheme: **Teal** (#00c1cf), **Magenta** (#be70ae), and **Dark Neutral** (#202020).
+- Implemented a **Hybrid Logo/Text Approach** for improved brand identification and readability.
+- Added **Spectrum Gradient** motif to hero text and CTA highlights.
+
+### Changed
+- Refined **Diagnostic Section** text and improved contrast for better legibility.
+- Doubled logo size and adjusted navigation height for clearer brand presence.
+- Updated footer layout with consistent branding and explicit text.
+
+
 ## [1.1.0] - 2026-03-16
 
 ### Added

@@ -3,8 +3,11 @@
 @tailwind utilities;
 
 :root {
-  --primary: #1e3a8a;
-  --primary-hover: #1e40af;
+  --primary: #00c1cf;
+  --primary-hover: #00a8b5;
+  --accent: #be70ae;
+  --accent-hover: #a55b95;
+  --header-bg: #202020;
   --secondary: #f8fafc;
 }
 
@@ -47,6 +50,22 @@ body {
 /* Smooth scroll helper */
 html {
   scroll-behavior: smooth;
+}
+
+/* Brand Button Styles */
+.btn-primary {
+  @apply bg-[#00c1cf] text-white hover:bg-[#00a8b5] transition-all rounded-full font-bold px-7 py-3;
+}
+
+.btn-accent {
+  @apply bg-[#be70ae] text-white hover:bg-[#a55b95] transition-all rounded-full font-bold px-7 py-3;
+}
+
+/* Spectrum Gradient Motif */
+.spectrum-gradient {
+  background: linear-gradient(90deg, #00c1cf, #788c5d, #be70ae, #d97757);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /* Staggered animation utilities */

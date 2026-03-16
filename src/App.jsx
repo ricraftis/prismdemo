@@ -35,14 +35,16 @@ const App = () => {
       {/* Navigation */}
       <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
-            <div className="flex items-center space-x-3 group cursor-pointer">
-              <div className="w-11 h-11 bg-blue-950 rounded-xl flex items-center justify-center shadow-lg group-hover:scale-105 transition-transform duration-300">
-                <span className="text-white font-bold text-2xl font-display">P</span>
-              </div>
+          <div className="flex justify-between h-24 items-center">
+            <div className="flex items-center space-x-4 group cursor-pointer" onClick={() => scrollTo('top')}>
+              <img 
+                src="/Prism Business Intiatives - 300px.jpg" 
+                alt="Prism Business Initiatives" 
+                className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              />
               <div className="flex flex-col">
-                <span className="text-xl font-black tracking-tight text-blue-950 block leading-none font-display">PRISM</span>
-                <span className="text-[9px] uppercase tracking-[0.3em] text-slate-400 font-bold">Business Initiatives</span>
+                <span className="text-2xl font-black tracking-tight text-[#202020] block leading-none font-display">PRISM</span>
+                <span className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold">Business Initiatives</span>
               </div>
             </div>
 
@@ -52,13 +54,13 @@ const App = () => {
                 <button 
                   key={item}
                   onClick={() => scrollTo(item.toLowerCase().replace(' ', ''))} 
-                  className="text-sm font-semibold text-slate-500 hover:text-blue-950 transition-all relative group"
+                  className="text-sm font-semibold text-slate-500 hover:text-[#00c1cf] transition-all relative group"
                 >
                   {item}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all group-hover:w-full"></span>
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00c1cf] transition-all group-hover:w-full"></span>
                 </button>
               ))}
-              <button className="bg-blue-950 text-white px-7 py-3 rounded-full text-sm font-bold hover:bg-black transition-all shadow-xl hover:shadow-blue-900/10 active:scale-95">
+              <button className="bg-[#00c1cf] text-white px-7 py-3 rounded-full text-sm font-bold hover:bg-[#00a8b5] transition-all shadow-xl hover:shadow-[#00c1cf]/10 active:scale-95">
                 Book Consultation
               </button>
             </div>
@@ -78,7 +80,7 @@ const App = () => {
             <button onClick={() => scrollTo('services')} className="block w-full text-left text-lg font-bold text-slate-800">Services</button>
             <button onClick={() => scrollTo('diagnostic')} className="block w-full text-left text-lg font-bold text-slate-800">Health Check</button>
             <button onClick={() => scrollTo('about')} className="block w-full text-left text-lg font-bold text-slate-800">About</button>
-            <button className="block w-full bg-blue-950 text-white px-6 py-4 rounded-2xl font-bold text-center shadow-lg">Book Consultation</button>
+            <button className="block w-full bg-[#00c1cf] text-white px-6 py-4 rounded-2xl font-bold text-center shadow-lg">Book Consultation</button>
           </div>
         )}
       </nav>
@@ -95,9 +97,9 @@ const App = () => {
                 </span>
                 <span className="tracking-widest uppercase text-blue-900">Regional Victoria's Strategic Partner</span>
               </div>
-              <h1 className="text-5xl lg:text-7xl font-black text-blue-950 tracking-tighter leading-[0.95] mb-8 font-display animate-fade-in-up opacity-0" style={{ animationDelay: '200ms' }}>
+              <h1 className="text-5xl lg:text-7xl font-black text-[#202020] tracking-tighter leading-[0.95] mb-8 font-display animate-fade-in-up opacity-0" style={{ animationDelay: '200ms' }}>
                 Clear Direction.<br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-700 to-indigo-900">Ambitious Scale.</span>
+                <span className="spectrum-gradient">Ambitious Scale.</span>
               </h1>
               <p className="text-xl text-slate-600 mb-12 leading-relaxed max-w-xl animate-fade-in-up opacity-0 font-medium" style={{ animationDelay: '300ms' }}>
                 From reactive recording to proactive strategy. We provide the foundational data and the CFO-level expertise you need to scale with total confidence.
@@ -105,7 +107,7 @@ const App = () => {
               <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 animate-fade-in-up opacity-0" style={{ animationDelay: '400ms' }}>
                 <button 
                   onClick={() => scrollTo('diagnostic')}
-                  className="bg-blue-950 text-white px-10 py-5 rounded-2xl font-black hover:bg-black transition-all shadow-2xl hover:shadow-blue-900/20 flex items-center justify-center group"
+                  className="bg-[#00c1cf] text-white px-10 py-5 rounded-2xl font-black hover:bg-[#00a8b5] transition-all shadow-2xl hover:shadow-[#00c1cf]/20 flex items-center justify-center group"
                 >
                   Get Your Health Score
                   <ChevronRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
@@ -239,10 +241,10 @@ const App = () => {
                 Immediate Insights
               </div>
               <h2 className="text-5xl lg:text-7xl font-black mb-10 leading-[0.95] font-display">
-                Unlock Your <span className="text-blue-400">Score.</span>
+                Unlock Your <span className="text-[#00c1cf]">Score.</span>
               </h2>
               <p className="text-blue-100/70 text-xl mb-12 leading-relaxed font-medium">
-                Take our SME Growth Diagnostic to identify the gaps in your financial engine. Get a 12-page report on Cash Flow, Systems, and Scalability.
+                Take our SME Growth Diagnostic to identify the gaps in your financial engine. Get a detailed report on Cash Flow, Systems, and Scalability.
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
                 {[
@@ -259,23 +261,23 @@ const App = () => {
                   </div>
                 ))}
               </div>
-              <button className="w-full sm:w-auto bg-white text-blue-950 px-12 py-6 rounded-2xl font-black text-lg hover:bg-blue-50 transition-all shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-1 active:translate-y-0">
+              <button className="w-full sm:w-auto bg-white text-[#202020] px-12 py-6 rounded-2xl font-black text-lg hover:bg-[#f8fafc] transition-all shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-1 active:translate-y-0">
                 Start My Health Check
               </button>
             </div>
             <div className="lg:w-1/2">
               <div className="relative group">
                 <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-10 group-hover:opacity-20 transition-opacity"></div>
-                <div className="relative glass border-white/10 rounded-[2.5rem] p-12 overflow-hidden">
-                    <div className="space-y-8 relative z-10">
+                <div className="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-10 lg:p-12 overflow-hidden shadow-2xl">
+                    <div className="space-y-10 relative z-10">
                         {[
                             { step: "01", text: "Answer 7 quick questions about your business" },
                             { step: "02", text: "Our algorithm analyzes your profit leaks" },
                             { step: "03", text: "Download your 'Growth Readiness' PDF report" }
                         ].map((item, i) => (
-                            <div key={i} className="flex items-center space-x-6">
-                                <div className="text-2xl font-black text-blue-500 font-display opacity-50">{item.step}</div>
-                                <p className="text-lg font-bold text-white">{item.text}</p>
+                            <div key={i} className="flex items-center space-x-6 group/step">
+                                <div className="text-3xl font-black text-[#00c1cf] font-display opacity-80 group-hover/step:opacity-100 transition-opacity">{item.step}</div>
+                                <p className="text-lg font-bold text-white/90 group-hover/step:text-white transition-colors">{item.text}</p>
                             </div>
                         ))}
                     </div>
@@ -283,12 +285,12 @@ const App = () => {
                         <div className="flex -space-x-3 mb-6">
                             {[1,2,3,4,5].map(i => (
                                 <div key={i} className="w-12 h-12 rounded-full border-4 border-blue-950 bg-slate-800 shadow-xl overflow-hidden relative">
-                                    <div className="absolute inset-0 flex items-center justify-center text-[10px] font-bold text-white uppercase italic tracking-tighter">USER</div>
+                                    <div className="absolute inset-0 flex items-center justify-center text-[10px] font-black text-white/20 uppercase italic tracking-tighter">USER</div>
                                 </div>
                             ))}
-                            <div className="w-12 h-12 rounded-full border-4 border-blue-950 bg-blue-600 flex items-center justify-center text-xs font-black shadow-xl">50+</div>
+                            <div className="w-12 h-12 rounded-full border-4 border-blue-950 bg-[#00c1cf] flex items-center justify-center text-xs font-black shadow-xl text-white">50+</div>
                         </div>
-                        <p className="text-sm font-bold text-blue-300">50+ local leaders have already optimized their core.</p>
+                        <p className="text-sm font-bold text-blue-200/80">50+ local leaders have already optimized their core.</p>
                     </div>
                 </div>
               </div>
@@ -425,13 +427,13 @@ const App = () => {
       <section className="py-32 bg-blue-950 text-white relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <h2 className="text-5xl lg:text-7xl font-black mb-10 leading-[0.95] font-display tracking-tight">
-            Thrive. <span className="text-blue-500">Scale.</span> Dominate.
+            Thrive. <span className="text-[#00c1cf]">Scale.</span> Dominate.
           </h2>
           <p className="text-blue-200/60 text-xl mb-16 max-w-2xl mx-auto font-medium">
             Whether you need a quick health check or a deep-dive strategy session, we're here to help regional Victoria thrive.
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
-            <button className="bg-blue-600 text-white px-12 py-6 rounded-2xl font-black text-lg hover:bg-blue-500 transition-all shadow-2xl hover:shadow-blue-600/20 active:scale-95">
+            <button className="bg-[#00c1cf] text-white px-12 py-6 rounded-2xl font-black text-lg hover:bg-[#00a8b5] transition-all shadow-2xl hover:shadow-[#00c1cf]/20 active:scale-95">
               Start Free Diagnostic
             </button>
             <button className="bg-transparent border-2 border-white/20 text-white px-12 py-6 rounded-2xl font-black text-lg hover:bg-white/5 transition-all active:scale-95">
@@ -446,11 +448,18 @@ const App = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
             <div className="mb-12 md:mb-0">
-              <div className="flex items-center space-x-3 mb-6">
-                <div className="w-8 h-8 bg-white text-black rounded-lg flex items-center justify-center font-bold font-display">P</div>
-                <span className="text-white font-black tracking-tight font-display">PRISM BUSINESS INITIATIVES</span>
+              <div className="flex items-center space-x-4 mb-6">
+                <img 
+                  src="/Prism Business Intiatives - 300px.jpg" 
+                  alt="Prism Logo" 
+                  className="h-14 w-auto object-contain" 
+                />
+                <div className="flex flex-col">
+                  <span className="text-xl font-black tracking-tight text-white block leading-none font-display">PRISM</span>
+                  <span className="text-[8px] uppercase tracking-[0.3em] text-slate-500 font-bold">Business Initiatives</span>
+                </div>
               </div>
-              <p className="text-xs font-bold uppercase tracking-widest text-slate-600">© 2024. Serving Regional Victoria, Australia.</p>
+              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-600">© 2026. Serving Regional Victoria, Australia.</p>
             </div>
             
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-12 text-[10px] font-black uppercase tracking-[0.3em] overflow-hidden">
