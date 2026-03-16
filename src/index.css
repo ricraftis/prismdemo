@@ -1,0 +1,57 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary: #1e3a8a;
+  --primary-hover: #1e40af;
+  --secondary: #f8fafc;
+}
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+/* Custom noise texture */
+.noise-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3尝%3Cfilter id='noiseFilter'%3尝%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3尝%3C/filter%3尝%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3尝%3C/svg%3尝");
+}
+
+/* Gradient Mesh for Hero */
+.gradient-mesh {
+  background-color: #f8fafc;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(221, 83%, 93%, 1) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(199, 89%, 94%, 1) 0, transparent 50%), 
+    radial-gradient(at 100% 100%, hsla(221, 83%, 93%, 1) 0, transparent 50%), 
+    radial-gradient(at 0% 100%, hsla(199, 89%, 94%, 1) 0, transparent 50%);
+}
+
+/* Glassmorphism utility */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Smooth scroll helper */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Staggered animation utilities */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
