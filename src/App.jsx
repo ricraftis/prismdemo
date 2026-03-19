@@ -14,9 +14,11 @@ import {
   X,
   ClipboardCheck
 } from 'lucide-react';
+import FractionalCFO from './pages/FractionalCFO';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [currentView, setCurrentView] = useState('home'); // 'home' or 'fractional-cfo'
 
   // Smooth scroll helper
   const scrollTo = (id) => {
@@ -25,7 +27,24 @@ const App = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
     setIsMenuOpen(false);
+    setCurrentView('home');
   };
+
+  if (currentView === 'fractional-cfo') {
+    return (
+      <FractionalCFO 
+        onBack={() => setCurrentView('home')} 
+        onConsultation={() => {
+          setCurrentView('home');
+          setTimeout(() => scrollTo('diagnostic'), 100);
+        }}
+        onDiagnostic={() => {
+          setCurrentView('home');
+          setTimeout(() => scrollTo('diagnostic'), 100);
+        }}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-blue-100 relative overflow-hidden">
@@ -320,9 +339,19 @@ const App = () => {
                   <div>
                     <div className="inline-block px-4 py-1 bg-blue-50 text-blue-700 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Level 01: Elevation</div>
                     <h3 className="text-4xl font-black text-blue-950 mb-8 font-display leading-[0.95]">Strategic Growth CFO</h3>
-                    <p className="text-slate-500 text-lg mb-10 leading-relaxed font-medium">
+                    <p className="text-slate-500 text-lg mb-8 leading-relaxed font-medium">
                       Access C-suite financial expertise without the $250k overhead. We act as your Strategic Partner, focusing on ROI, exit planning, and capital efficiency.
                     </p>
+                    <button 
+                      onClick={() => {
+                        window.scrollTo(0, 0);
+                        setCurrentView('fractional-cfo');
+                      }}
+                      className="inline-flex items-center space-x-3 bg-white border-2 border-[#00c1cf] text-[#00c1cf] px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-[#00c1cf] hover:text-white transition-all duration-300 mb-12 shadow-sm hover:shadow-lg group/btn active:scale-95"
+                    >
+                      <span>Explore CFO Strategy</span>
+                      <ChevronRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
+                    </button>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8">
                       {[
                         "Fractional CFO Advisory",
