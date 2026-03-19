@@ -71,7 +71,7 @@ const DigitalTransformation = ({ onBack }) => {
           <div className="relative animate-in fade-in zoom-in duration-1000 delay-200">
             <div className="absolute -inset-4 bg-gradient-to-tr from-[#00c1cf]/20 to-transparent blur-3xl opacity-50 rounded-full" />
             <img 
-              src="/home/ric/.gemini/antigravity/brain/448fdb34-9221-43d1-959c-e4542fa3254e/digital_transformation_hero_1773959380847.png" 
+              src="/digital_transformation_hero.png" 
               alt="Digital Transformation Specialist" 
               className="relative w-full aspect-square object-cover rounded-[2rem] shadow-2xl border border-white/20"
             />
@@ -143,7 +143,7 @@ const DigitalTransformation = ({ onBack }) => {
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <div className="order-2 md:order-1 relative">
               <img 
-                src="/home/ric/.gemini/antigravity/brain/448fdb34-9221-43d1-959c-e4542fa3254e/digital_roadmap_1773959394059.png" 
+                src="/digital_roadmap.png" 
                 alt="Digital Transformation Roadmap" 
                 className="w-full rounded-3xl shadow-2xl"
               />
