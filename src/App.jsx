@@ -15,10 +15,11 @@ import {
   ClipboardCheck
 } from 'lucide-react';
 import FractionalCFO from './pages/FractionalCFO';
+import DigitalTransformation from './pages/DigitalTransformation';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentView, setCurrentView] = useState('home'); // 'home' or 'fractional-cfo'
+  const [currentView, setCurrentView] = useState('home'); // 'home', 'fractional-cfo', or 'digital-transformation'
 
   // Smooth scroll helper
   const scrollTo = (id) => {
@@ -42,6 +43,14 @@ const App = () => {
           setCurrentView('home');
           setTimeout(() => scrollTo('diagnostic'), 100);
         }}
+      />
+    );
+  }
+
+  if (currentView === 'digital-transformation') {
+    return (
+      <DigitalTransformation 
+        onBack={() => setCurrentView('home')} 
       />
     );
   }
@@ -392,8 +401,15 @@ const App = () => {
                 <p className="text-slate-500 mb-10 font-medium leading-relaxed">
                   We modernize your 'back office' with cloud automation, integrating your CRM, inventory, and ledger for a single source of truth.
                 </p>
-                <button className="group/btn text-blue-900 font-black flex items-center text-sm uppercase tracking-widest">
-                  Systems Strategy <ChevronRight size={18} className="ml-1 group-hover/btn:translate-x-1 transition-transform" />
+                <button 
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    setCurrentView('digital-transformation');
+                  }}
+                  className="inline-flex items-center space-x-3 bg-white border-2 border-[#00c1cf] text-[#00c1cf] px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-[#00c1cf] hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg group/btn active:scale-95"
+                >
+                  <span>Explore Digital Roadmap</span>
+                  <ChevronRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
                 </button>
             </div>
             
