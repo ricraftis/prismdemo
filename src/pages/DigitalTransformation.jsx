@@ -71,7 +71,7 @@ const DigitalTransformation = ({ onBack }) => {
           <div className="relative animate-in fade-in zoom-in duration-1000 delay-200">
             <div className="absolute -inset-4 bg-gradient-to-tr from-[#00c1cf]/20 to-transparent blur-3xl opacity-50 rounded-full" />
             <img 
-              src="/digital_transformation_hero.png" 
+              src="/becDigitalTransformation.jpg" 
               alt="Digital Transformation Specialist" 
               className="relative w-full aspect-square object-cover rounded-[2rem] shadow-2xl border border-white/20"
             />
