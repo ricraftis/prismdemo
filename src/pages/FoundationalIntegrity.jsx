@@ -11,7 +11,7 @@ import {
   Search
 } from 'lucide-react';
 
-const FoundationalIntegrity = ({ onBack }) => {
+const FoundationalIntegrity = ({ onBack, onNavigateService }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -93,15 +93,18 @@ const FoundationalIntegrity = ({ onBack }) => {
                 Harness the power of MYOB with bespoke processes tailored to your startup or established enterprise. Accurate tracking and insightful reporting at your fingertips.
               </p>
               <ul className="space-y-4 mb-12">
-                {['Day-to-day transactions', 'Tailored MYOB integration', 'Insightful reporting'].map(item => (
+                {['Day-to-day transactions', 'MYOB or Xero integration', 'Insightful reporting'].map(item => (
                   <li key={item} className="flex items-center space-x-3 text-sm font-bold text-slate-500">
                     <CheckCircle2 size={16} className="text-emerald-500" />
                     <span>{item}</span>
                   </li>
                 ))}
               </ul>
-              <button className="text-[#00c1cf] font-black uppercase tracking-widest text-xs flex items-center hover:translate-x-1 transition-transform">
-                Service Details <ArrowRight size={16} className="ml-2" />
+              <button 
+                onClick={() => onNavigateService('bookkeeping')}
+                className="text-[#00c1cf] font-black uppercase tracking-[0.2em] text-xs flex items-center hover:translate-x-1 transition-transform group/link"
+              >
+                Service Details <ArrowRight size={16} className="ml-2 group-hover/link:translate-x-1 transition-transform" />
               </button>
             </div>
 
@@ -122,8 +125,11 @@ const FoundationalIntegrity = ({ onBack }) => {
                   </li>
                 ))}
               </ul>
-              <button className="text-indigo-600 font-black uppercase tracking-widest text-xs flex items-center hover:translate-x-1 transition-transform">
-                Payroll Excellence <ArrowRight size={16} className="ml-2" />
+              <button 
+                onClick={() => onNavigateService('payroll')}
+                className="text-indigo-600 font-black uppercase tracking-[0.2em] text-xs flex items-center hover:translate-x-1 transition-transform group/link"
+              >
+                Payroll Excellence <ArrowRight size={16} className="ml-2 group-hover/link:translate-x-1 transition-transform" />
               </button>
             </div>
 
@@ -144,9 +150,22 @@ const FoundationalIntegrity = ({ onBack }) => {
                   </li>
                 ))}
               </ul>
-              <button className="text-blue-900 font-black uppercase tracking-widest text-xs flex items-center hover:translate-x-1 transition-transform">
-                Governance Pack <ArrowRight size={16} className="ml-2" />
+              <button 
+                onClick={() => onNavigateService('bas')}
+                className="text-blue-900 font-black uppercase tracking-[0.2em] text-xs flex items-center hover:translate-x-1 transition-transform group/link"
+              >
+                Governance Pack <ArrowRight size={16} className="ml-2 group-hover/link:translate-x-1 transition-transform" />
               </button>
+            </div>
+          </div>
+
+          {/* Partner Logos */}
+          <div className="mt-24 pt-20 border-t border-gray-100">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center justify-items-center opacity-70 hover:opacity-100 transition-opacity">
+               <img src="/CPA.png" alt="CPA Australia" className="h-12 md:h-16 w-auto grayscale object-contain hover:grayscale-0 transition-all" />
+               <img src="/registeredBASagent.png" alt="Registered BAS Agent" className="h-12 md:h-16 w-auto grayscale object-contain hover:grayscale-0 transition-all" />
+               <img src="/xero-advisor-certified-individual-badge.avif" alt="Xero Advisor" className="h-16 md:h-20 w-auto grayscale object-contain hover:grayscale-0 transition-all" />
+               <img src="/Partner-Program-logo-Purple-horizontal-300x91.avif" alt="Partner Program" className="h-8 md:h-12 w-auto grayscale object-contain hover:grayscale-0 transition-all" />
             </div>
           </div>
         </div>

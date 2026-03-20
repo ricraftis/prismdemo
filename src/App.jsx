@@ -17,10 +17,13 @@ import {
 import FractionalCFO from './pages/FractionalCFO';
 import DigitalTransformation from './pages/DigitalTransformation';
 import FoundationalIntegrity from './pages/FoundationalIntegrity';
+import Bookkeeping from './pages/services/Bookkeeping';
+import Payroll from './pages/services/Payroll';
+import BAS from './pages/services/BAS';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentView, setCurrentView] = useState('home'); // 'home', 'fractional-cfo', 'digital-transformation', or 'foundational-integrity'
+  const [currentView, setCurrentView] = useState('home'); // 'home', 'fractional-cfo', 'digital-transformation', 'foundational-integrity', 'bookkeeping', 'payroll', 'bas'
 
   // Smooth scroll helper
   const scrollTo = (id) => {
@@ -60,8 +63,21 @@ const App = () => {
     return (
       <FoundationalIntegrity 
         onBack={() => setCurrentView('home')} 
+        onNavigateService={(service) => setCurrentView(service)}
       />
     );
+  }
+
+  if (currentView === 'bookkeeping') {
+    return <Bookkeeping onBack={() => setCurrentView('foundational-integrity')} />;
+  }
+
+  if (currentView === 'payroll') {
+    return <Payroll onBack={() => setCurrentView('foundational-integrity')} />;
+  }
+
+  if (currentView === 'bas') {
+    return <BAS onBack={() => setCurrentView('foundational-integrity')} />;
   }
 
   return (
