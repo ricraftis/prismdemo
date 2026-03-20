@@ -16,10 +16,11 @@ import {
 } from 'lucide-react';
 import FractionalCFO from './pages/FractionalCFO';
 import DigitalTransformation from './pages/DigitalTransformation';
+import FoundationalIntegrity from './pages/FoundationalIntegrity';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentView, setCurrentView] = useState('home'); // 'home', 'fractional-cfo', or 'digital-transformation'
+  const [currentView, setCurrentView] = useState('home'); // 'home', 'fractional-cfo', 'digital-transformation', or 'foundational-integrity'
 
   // Smooth scroll helper
   const scrollTo = (id) => {
@@ -50,6 +51,14 @@ const App = () => {
   if (currentView === 'digital-transformation') {
     return (
       <DigitalTransformation 
+        onBack={() => setCurrentView('home')} 
+      />
+    );
+  }
+
+  if (currentView === 'foundational-integrity') {
+    return (
+      <FoundationalIntegrity 
         onBack={() => setCurrentView('home')} 
       />
     );
@@ -421,8 +430,15 @@ const App = () => {
                 <p className="text-slate-500 mb-10 font-medium leading-relaxed">
                   Flawless bookkeeping and payroll management. decision-ready accuracy so you never have to guess your position.
                 </p>
-                <button className="group/btn text-blue-900 font-black flex items-center text-sm uppercase tracking-widest">
-                  Governance Pack <ChevronRight size={18} className="ml-1 group-hover/btn:translate-x-1 transition-transform" />
+                <button 
+                  onClick={() => {
+                    window.scrollTo(0, 0);
+                    setCurrentView('foundational-integrity');
+                  }}
+                  className="inline-flex items-center space-x-3 bg-white border-2 border-[#00c1cf] text-[#00c1cf] px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-[#00c1cf] hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg group/btn active:scale-95"
+                >
+                  <span>Explore Governance Roadmap</span>
+                  <ChevronRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
                 </button>
             </div>
           </div>
