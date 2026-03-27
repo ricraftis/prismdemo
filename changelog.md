@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
  
+## [1.3.1] - 2026-03-27
+ 
+### Changed
+- **Fractional CFO Hero:** Updated hero image format from `.png` to `.jpg` and converted existing assets for optimization.
+- **Project Assets:** Integrated additional photography assets (`becFractionalCFO.jpg`, `rebecaaHearn.jpg`) into the public directory.
+
 ## [1.3.0] - 2026-03-19
  
 - **Fractional CFO & Digital Transformation Pages:** Implemented high-conversion landing pages following strict B2B copywriting standards.
