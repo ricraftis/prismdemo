@@ -69,7 +69,7 @@ const FractionalCFO = ({ onBack, onConsultation, onDiagnostic }) => {
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
                 <img 
-                  src="/fractional_cfo_hero.png" 
+                  src="/fractional_cfo_hero.jpg" 
                   alt="Fractional CFO Strategic Leadership" 
                   className="w-full h-auto object-cover aspect-[4/5]"
                 />
