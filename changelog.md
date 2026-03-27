@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
  
+## [1.3.2] - 2026-03-27
+
+### Added
+- **Bookkeeping Services Page:** Launched a dedicated, high-impact landing page for bookkeeping services, featuring MYOB expertise and outcome-focused content.
+- **Bespoke Visuals:** Generated and integrated premium imagery for the Bookkeeping hero section.
+
 ## [1.3.1] - 2026-03-27
  
 ### Changed

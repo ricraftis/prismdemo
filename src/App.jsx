@@ -69,7 +69,15 @@ const App = () => {
   }
 
   if (currentView === 'bookkeeping') {
-    return <Bookkeeping onBack={() => setCurrentView('foundational-integrity')} />;
+    return (
+      <Bookkeeping 
+        onBack={() => setCurrentView('foundational-integrity')} 
+        onConsultation={() => {
+          setCurrentView('home');
+          setTimeout(() => scrollTo('diagnostic'), 100);
+        }}
+      />
+    );
   }
 
   if (currentView === 'payroll') {
