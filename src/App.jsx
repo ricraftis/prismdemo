@@ -93,7 +93,15 @@ const App = () => {
   }
 
   if (currentView === 'bas') {
-    return <BAS onBack={() => setCurrentView('foundational-integrity')} />;
+    return (
+      <BAS 
+        onBack={() => setCurrentView('foundational-integrity')} 
+        onConsultation={() => {
+          setCurrentView('home');
+          setTimeout(() => scrollTo('diagnostic'), 300);
+        }}
+      />
+    );
   }
 
   return (

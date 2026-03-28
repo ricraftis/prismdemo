@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
  
+## [1.3.5] - 2026-03-28
+
+### Added
+- **BAS Completion & Lodging Page:** Launched the final governance-level landing page, focusing on ATO compliance, strategic tax positioning, and audit readiness.
+- **Custom Visuals:** Generated a bespoke orchard-themed hero visual (`bas_hero.png`) featuring a professional regional aesthetic.
+
 ## [1.3.4] - 2026-03-28
 
 ### Added
