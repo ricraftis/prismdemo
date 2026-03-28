@@ -11,7 +11,7 @@ import {
   Search
 } from 'lucide-react';
 
-const FoundationalIntegrity = ({ onBack, onNavigateService }) => {
+const FoundationalIntegrity = ({ onBack, onNavigateService, onConsultation, onDiagnostic }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -31,9 +31,18 @@ const FoundationalIntegrity = ({ onBack, onNavigateService }) => {
           
           <div className="hidden md:flex items-center space-x-8">
             {['Bookkeeping', 'Payroll', 'BAS'].map(item => (
-              <button key={item} className="text-sm font-bold uppercase tracking-widest hover:text-[#00c1cf] transition-colors">{item}</button>
+              <button 
+                key={item} 
+                onClick={() => onNavigateService(item.toLowerCase())}
+                className="text-sm font-bold uppercase tracking-widest hover:text-[#00c1cf] transition-colors"
+              >
+                {item}
+              </button>
             ))}
-            <button className="px-6 py-2 bg-blue-950 text-white rounded-full text-sm font-bold uppercase tracking-widest hover:bg-blue-900 transition-all shadow-sm">
+            <button 
+              onClick={onConsultation}
+              className="px-6 py-2 bg-blue-950 text-white rounded-full text-sm font-bold uppercase tracking-widest hover:bg-blue-900 transition-all shadow-sm active:scale-95"
+            >
               Contact Us
             </button>
           </div>
@@ -56,7 +65,10 @@ const FoundationalIntegrity = ({ onBack, onNavigateService }) => {
               We provide the decision-ready accuracy and regulatory peace of mind your business needs to scale. From flawless bookkeeping to compliant payroll, your foundation is our priority.
             </p>
             <div className="pt-4">
-              <button className="px-10 py-5 bg-blue-950 text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-blue-900 transition-all shadow-xl hover:-translate-y-1 active:scale-95 group flex items-center">
+              <button 
+                onClick={onConsultation}
+                className="px-10 py-5 bg-blue-950 text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-blue-900 transition-all shadow-xl hover:-translate-y-1 active:scale-95 group flex items-center"
+              >
                 Secure Your Foundation
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
@@ -225,10 +237,16 @@ const FoundationalIntegrity = ({ onBack, onNavigateService }) => {
               Experience a seamless, efficient, and transparent financial journey. Let us handle the complexity while you focus on the growth.
             </p>
             <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-              <button className="px-12 py-6 bg-[#00c1cf] text-white rounded-2xl font-black text-sm uppercase tracking-[0.2em] shadow-xl hover:bg-[#00a8b5] transition-all hover:-translate-y-1 active:scale-95">
+              <button 
+                onClick={onDiagnostic}
+                className="px-12 py-6 bg-[#00c1cf] text-white rounded-2xl font-black text-sm uppercase tracking-[0.2em] shadow-xl hover:bg-[#00a8b5] transition-all hover:-translate-y-1 active:scale-95"
+              >
                 Start Health Check
               </button>
-              <button className="px-12 py-6 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-white/20 transition-all active:scale-95">
+              <button 
+                onClick={onConsultation}
+                className="px-12 py-6 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-white/20 transition-all active:scale-95"
+              >
                 Book Consultation
               </button>
             </div>

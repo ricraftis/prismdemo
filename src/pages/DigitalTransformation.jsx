@@ -14,7 +14,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-const DigitalTransformation = ({ onBack }) => {
+const DigitalTransformation = ({ onBack, onConsultation, onDiagnostic }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -33,9 +33,22 @@ const DigitalTransformation = ({ onBack }) => {
           </button>
           
           <div className="hidden md:flex items-center space-x-8">
-            <button className="text-sm font-bold uppercase tracking-widest hover:text-[#00c1cf] transition-colors">Methodology</button>
-            <button className="text-sm font-bold uppercase tracking-widest hover:text-[#00c1cf] transition-colors">Roadmap</button>
-            <button className="px-6 py-2 bg-[#00c1cf] text-white rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#00a8b5] transition-all shadow-sm">
+            <button 
+              onClick={() => document.getElementById('methodology')?.scrollIntoView({ behavior: 'smooth' })}
+              className="text-sm font-bold uppercase tracking-widest hover:text-[#00c1cf] transition-colors"
+            >
+              Methodology
+            </button>
+            <button 
+              onClick={() => document.getElementById('roadmap')?.scrollIntoView({ behavior: 'smooth' })}
+              className="text-sm font-bold uppercase tracking-widest hover:text-[#00c1cf] transition-colors"
+            >
+              Roadmap
+            </button>
+            <button 
+              onClick={onConsultation}
+              className="px-6 py-2 bg-[#00c1cf] text-white rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#00a8b5] transition-all shadow-sm active:scale-95"
+            >
               Book Consultation
             </button>
           </div>
@@ -57,11 +70,17 @@ const DigitalTransformation = ({ onBack }) => {
               Transition from spreadsheet-dependency to a unified, cloud-based platform that provides real-time visibility and scales seamlessly with your business.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 pt-4">
-              <button className="px-10 py-5 bg-[#00c1cf] text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-[#00a8b5] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 group flex items-center justify-center">
+              <button 
+                onClick={() => document.getElementById('roadmap')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-10 py-5 bg-[#00c1cf] text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-[#00a8b5] transition-all shadow-lg hover:shadow-xl hover:-translate-y-1 active:scale-95 group flex items-center justify-center"
+              >
                 Get Your Digital Roadmap
                 <ArrowRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
               </button>
-              <button className="px-10 py-5 bg-white border-2 border-gray-100 text-gray-900 rounded-2xl font-black text-sm uppercase tracking-widest hover:border-[#00c1cf] hover:text-[#00c1cf] transition-all flex items-center justify-center group active:scale-95">
+              <button 
+                onClick={() => document.getElementById('methodology')?.scrollIntoView({ behavior: 'smooth' })}
+                className="px-10 py-5 bg-white border-2 border-gray-100 text-gray-900 rounded-2xl font-black text-sm uppercase tracking-widest hover:border-[#00c1cf] hover:text-[#00c1cf] transition-all flex items-center justify-center group active:scale-95"
+              >
                 <PlayCircle size={20} className="mr-2 text-[#00c1cf]" />
                 Watch Methodology
               </button>
@@ -88,7 +107,7 @@ const DigitalTransformation = ({ onBack }) => {
       </section>
 
       {/* The Growing Pains */}
-      <section className="py-24 bg-[#202020] text-white overflow-hidden relative">
+      <section id="methodology" className="py-24 bg-[#202020] text-white overflow-hidden relative">
         <div className="absolute top-0 right-0 w-1/2 h-full bg-[#00c1cf]/5 mix-blend-overlay" />
         <div className="max-w-7xl mx-auto px-6 relative z-10">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -182,7 +201,7 @@ const DigitalTransformation = ({ onBack }) => {
       </section>
 
       {/* Your Transformation Roadmap */}
-      <section className="py-32 px-6 bg-gray-50">
+      <section id="roadmap" className="py-32 px-6 bg-gray-50">
         <div className="max-w-7xl mx-auto">
           <h2 className="text-4xl font-['Outfit'] font-black mb-16 text-center">Your Transformation Roadmap</h2>
           <div className="grid md:grid-cols-3 gap-12">
@@ -244,10 +263,16 @@ const DigitalTransformation = ({ onBack }) => {
             Download our Free Digital Maturity Checklist or talk to Prism Business Initiatives on how we can create a team-based transformation in your business.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
-            <button className="px-12 py-6 bg-[#00c1cf] text-white rounded-2xl font-black text-sm uppercase tracking-[0.2em] shadow-xl hover:bg-[#00a8b5] transition-all hover:-translate-y-1 active:scale-95">
+            <button 
+              onClick={onDiagnostic}
+              className="px-12 py-6 bg-[#00c1cf] text-white rounded-2xl font-black text-sm uppercase tracking-[0.2em] shadow-xl hover:bg-[#00a8b5] transition-all hover:-translate-y-1 active:scale-95"
+            >
               Start Your Diagnostic
             </button>
-            <button className="px-12 py-6 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-white/20 transition-all active:scale-95">
+            <button 
+              onClick={onConsultation}
+              className="px-12 py-6 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-white/20 transition-all active:scale-95"
+            >
               Book Consultation
             </button>
           </div>

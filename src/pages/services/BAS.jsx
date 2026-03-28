@@ -91,7 +91,7 @@ const BAS = ({ onBack, onConsultation }) => {
               <div className="absolute -inset-10 bg-blue-50/50 blur-[80px] rounded-full" />
               <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-700">
                 <img 
-                  src="/bas_hero.png" 
+                  src="/PrismBAS_Systems.jpg" 
                   alt="BAS and Taxation Governance" 
                   className="w-full h-auto aspect-[4/5] object-cover"
                 />

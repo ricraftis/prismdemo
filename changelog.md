@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
  
+## [1.3.6] - 2026-03-28
+
+### Added
+- **Global Link Audit:** Conducted a comprehensive audit of all internal navigation and call-to-action buttons across the Home, Hub, and detail pages. Connected multiple previously inactive buttons (Book Consultation, Start Diagnostic, Footer Links).
+- **Sub-page Navigation Enhancement:** Added `onConsultation` and `onDiagnostic` capabilities to all service detail pages for seamless flow back to the central diagnostic tool.
+- **BAS Asset Update:** Replaced default hero visual with `PrismBAS_Systems.jpg` as requested.
+
 ## [1.3.5] - 2026-03-28
 
 ### Added

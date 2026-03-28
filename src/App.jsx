@@ -55,6 +55,14 @@ const App = () => {
     return (
       <DigitalTransformation 
         onBack={() => setCurrentView('home')} 
+        onConsultation={() => {
+          setCurrentView('home');
+          setTimeout(() => scrollTo('diagnostic'), 300);
+        }}
+        onDiagnostic={() => {
+          setCurrentView('home');
+          setTimeout(() => scrollTo('diagnostic'), 300);
+        }}
       />
     );
   }
@@ -64,6 +72,14 @@ const App = () => {
       <FoundationalIntegrity 
         onBack={() => setCurrentView('home')} 
         onNavigateService={(service) => setCurrentView(service)}
+        onConsultation={() => {
+          setCurrentView('home');
+          setTimeout(() => scrollTo('diagnostic'), 300);
+        }}
+        onDiagnostic={() => {
+          setCurrentView('home');
+          setTimeout(() => scrollTo('diagnostic'), 300);
+        }}
       />
     );
   }
@@ -105,7 +121,7 @@ const App = () => {
   }
 
   return (
-    <div className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-blue-100 relative overflow-hidden">
+    <div id="top" className="min-h-screen bg-slate-50 font-sans text-slate-900 selection:bg-blue-100 relative overflow-hidden">
       {/* Noise Overlay for Texture */}
       <div className="noise-overlay"></div>
 
@@ -130,14 +146,21 @@ const App = () => {
               {['Services', 'Health Check', 'About'].map((item) => (
                 <button 
                   key={item}
-                  onClick={() => scrollTo(item.toLowerCase().replace(' ', ''))} 
+                  onClick={() => {
+                    const idMap = { 'health check': 'diagnostic' };
+                    const target = idMap[item.toLowerCase()] || item.toLowerCase().replace(' ', '');
+                    scrollTo(target);
+                  }} 
                   className="text-sm font-semibold text-slate-500 hover:text-[#00c1cf] transition-all relative group"
                 >
                   {item}
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00c1cf] transition-all group-hover:w-full"></span>
                 </button>
               ))}
-              <button className="bg-[#00c1cf] text-white px-7 py-3 rounded-full text-sm font-bold hover:bg-[#00a8b5] transition-all shadow-xl hover:shadow-[#00c1cf]/10 active:scale-95">
+              <button 
+                onClick={() => scrollTo('diagnostic')}
+                className="bg-[#00c1cf] text-white px-7 py-3 rounded-full text-sm font-bold hover:bg-[#00a8b5] transition-all shadow-xl hover:shadow-[#00c1cf]/10 active:scale-95"
+              >
                 Book Consultation
               </button>
             </div>
@@ -157,7 +180,12 @@ const App = () => {
             <button onClick={() => scrollTo('services')} className="block w-full text-left text-lg font-bold text-slate-800">Services</button>
             <button onClick={() => scrollTo('diagnostic')} className="block w-full text-left text-lg font-bold text-slate-800">Health Check</button>
             <button onClick={() => scrollTo('about')} className="block w-full text-left text-lg font-bold text-slate-800">About</button>
-            <button className="block w-full bg-[#00c1cf] text-white px-6 py-4 rounded-2xl font-bold text-center shadow-lg">Book Consultation</button>
+            <button 
+              onClick={() => scrollTo('diagnostic')}
+              className="block w-full bg-[#00c1cf] text-white px-6 py-4 rounded-2xl font-bold text-center shadow-lg active:scale-[0.98]"
+            >
+              Book Consultation
+            </button>
           </div>
         )}
       </nav>
@@ -190,7 +218,8 @@ const App = () => {
                   <ChevronRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <button 
-                  className="bg-white/50 backdrop-blur-md text-slate-800 border border-white px-10 py-5 rounded-2xl font-black hover:bg-white transition-all flex items-center justify-center shadow-lg"
+                  onClick={() => scrollTo('services')}
+                  className="bg-white/50 backdrop-blur-md text-slate-800 border border-white px-10 py-5 rounded-2xl font-black hover:bg-white transition-all flex items-center justify-center shadow-lg active:scale-95"
                 >
                   Our Ecosystem
                 </button>
@@ -338,7 +367,10 @@ const App = () => {
                   </div>
                 ))}
               </div>
-              <button className="w-full sm:w-auto bg-white text-[#202020] px-12 py-6 rounded-2xl font-black text-lg hover:bg-[#f8fafc] transition-all shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-1 active:translate-y-0">
+              <button 
+                onClick={() => scrollTo('diagnostic')}
+                className="w-full sm:w-auto bg-white text-[#202020] px-12 py-6 rounded-2xl font-black text-lg hover:bg-[#f8fafc] transition-all shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-1 active:translate-y-0"
+              >
                 Start My Health Check
               </button>
             </div>
@@ -534,10 +566,16 @@ const App = () => {
             Whether you need a quick health check or a deep-dive strategy session, we're here to help regional Victoria thrive.
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
-            <button className="bg-[#00c1cf] text-white px-12 py-6 rounded-2xl font-black text-lg hover:bg-[#00a8b5] transition-all shadow-2xl hover:shadow-[#00c1cf]/20 active:scale-95">
+            <button 
+              onClick={() => scrollTo('diagnostic')}
+              className="bg-[#00c1cf] text-white px-12 py-6 rounded-2xl font-black text-lg hover:bg-[#00a8b5] transition-all shadow-2xl hover:shadow-[#00c1cf]/20 active:scale-95"
+            >
               Start Free Diagnostic
             </button>
-            <button className="bg-transparent border-2 border-white/20 text-white px-12 py-6 rounded-2xl font-black text-lg hover:bg-white/5 transition-all active:scale-95">
+            <button 
+              onClick={() => scrollTo('diagnostic')}
+              className="bg-transparent border-2 border-white/20 text-white px-12 py-6 rounded-2xl font-black text-lg hover:bg-white/5 transition-all active:scale-95"
+            >
               Book Consultation
             </button>
           </div>
@@ -564,10 +602,20 @@ const App = () => {
             </div>
             
             <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-12 text-[10px] font-black uppercase tracking-[0.3em] overflow-hidden">
-              <a href="#" className="hover:text-white transition-colors">Privacy</a>
-              <a href="#" className="hover:text-white transition-colors">Terms</a>
-              <a href="#" className="hover:text-white transition-colors">Strategy</a>
-              <a href="#" className="hover:text-white transition-colors">Contact</a>
+              <button onClick={() => window.scrollTo(0,0)} className="hover:text-white transition-colors text-left">Top</button>
+              <button 
+                onClick={() => scrollTo('services')} 
+                className="hover:text-white transition-colors text-left"
+              >
+                Strategy
+              </button>
+              <button 
+                onClick={() => scrollTo('diagnostic')} 
+                className="hover:text-white transition-colors text-left"
+              >
+                Contact
+              </button>
+              <span className="text-slate-700">© 2026</span>
             </div>
           </div>
         </div>
