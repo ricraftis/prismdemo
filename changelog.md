@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
  
+## [1.3.3] - 2026-03-28
+
+### Changed
+- **Bookkeeping Integration:** Expanded software mastery to explicitly include both **MYOB and Xero** across all high-impact sections.
+- **Navigation Reliability:** Improved smooth-scroll navigation reliability by optimizing cross-view transition timeouts.
+
 ## [1.3.2] - 2026-03-27
 
 ### Added

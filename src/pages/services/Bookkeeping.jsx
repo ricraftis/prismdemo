@@ -19,8 +19,8 @@ const Bookkeeping = ({ onBack, onConsultation }) => {
 
   const features = [
     {
-      title: "MYOB Mastery",
-      desc: "Tailored MYOB solutions for seamless integration and accurate tracking.",
+      title: "MYOB & Xero Mastery",
+      desc: "Harness the power of Australia's leading accounting platforms with bespoke integration and accurate tracking.",
       icon: <LayoutDashboard size={28} />
     },
     {
@@ -154,9 +154,9 @@ const Bookkeeping = ({ onBack, onConsultation }) => {
                          <div className="p-3 bg-blue-100 text-blue-900 rounded-xl"><FileSearch size={24} /></div>
                          <p className="text-xs font-black uppercase tracking-widest text-slate-400">Integrated Ecosystem</p>
                       </div>
-                      <h3 className="text-3xl font-black text-blue-950 font-display">Harness Australia's Leading Accounting Edge.</h3>
+                      <h3 className="text-3xl font-black text-blue-950 font-display">Harness the Power of MYOB & Xero.</h3>
                       <p className="text-slate-500 font-medium">
-                        Our proficiency in MYOB ensures seamless integration, accurate tracking, and insightful reporting—all at your fingertips. We tailor the software to meet your specific operational needs.
+                        Our proficiency in MYOB and Xero ensures seamless integration, accurate tracking, and insightful reporting—all at your fingertips. We tailor the software to meet your specific operational needs.
                       </p>
                       <div className="grid grid-cols-2 gap-4">
                          {['Real-time Entry', 'Cloud Automation', 'Direct ATO Links', 'Predictive Analysis'].map(tag => (

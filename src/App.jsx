@@ -41,11 +41,11 @@ const App = () => {
         onBack={() => setCurrentView('home')} 
         onConsultation={() => {
           setCurrentView('home');
-          setTimeout(() => scrollTo('diagnostic'), 100);
+          setTimeout(() => scrollTo('diagnostic'), 300);
         }}
         onDiagnostic={() => {
           setCurrentView('home');
-          setTimeout(() => scrollTo('diagnostic'), 100);
+          setTimeout(() => scrollTo('diagnostic'), 300);
         }}
       />
     );
@@ -74,7 +74,7 @@ const App = () => {
         onBack={() => setCurrentView('foundational-integrity')} 
         onConsultation={() => {
           setCurrentView('home');
-          setTimeout(() => scrollTo('diagnostic'), 100);
+          setTimeout(() => scrollTo('diagnostic'), 300);
         }}
       />
     );
