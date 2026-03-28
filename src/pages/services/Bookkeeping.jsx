@@ -9,7 +9,6 @@ import {
   MessageSquare,
   LayoutDashboard,
   Zap,
-  ArrowLeft,
   ChevronRight,
   Menu,
   X
