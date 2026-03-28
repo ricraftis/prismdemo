@@ -81,7 +81,15 @@ const App = () => {
   }
 
   if (currentView === 'payroll') {
-    return <Payroll onBack={() => setCurrentView('foundational-integrity')} />;
+    return (
+      <Payroll 
+        onBack={() => setCurrentView('foundational-integrity')} 
+        onConsultation={() => {
+          setCurrentView('home');
+          setTimeout(() => scrollTo('diagnostic'), 300);
+        }}
+      />
+    );
   }
 
   if (currentView === 'bas') {

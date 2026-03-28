@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
  
+## [1.3.4] - 2026-03-28
+
+### Added
+- **Compliant Payroll Page:** Launched a dedicated landing page for payroll services, featuring automated accuracy, governance protocols, and employee self-service integrations.
+- **Custom Visuals:** Generated and integrated premium imagery for the Payroll hero section.
+
 ## [1.3.3] - 2026-03-28
 
 ### Changed
