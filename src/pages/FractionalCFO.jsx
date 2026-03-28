@@ -10,7 +10,7 @@ import {
   FileSearch
 } from 'lucide-react';
 
-const FractionalCFO = ({ onBack, onConsultation, onDiagnostic }) => {
+const FractionalCFO = ({ onBack, onConsultation, onDiagnostic, onHome }) => {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-100 relative overflow-hidden">
       {/* Navigation - Minimal for Service Page */}
@@ -24,13 +24,16 @@ const FractionalCFO = ({ onBack, onConsultation, onDiagnostic }) => {
               <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
               <span>Back to Overview</span>
             </button>
-            <div className="flex items-center space-x-4">
+            <button 
+              onClick={onHome}
+              className="flex items-center space-x-4 hover:scale-105 transition-transform"
+            >
                <img 
                 src="/Prism Business Intiatives - 300px.jpg" 
                 alt="Prism Logo" 
-                className="h-10 w-auto object-contain"
+                className="h-10 w-auto"
               />
-            </div>
+            </button>
             <button 
               onClick={onConsultation}
               className="bg-blue-950 text-white px-6 py-2.5 rounded-full text-xs font-black hover:bg-blue-900 transition-all shadow-lg active:scale-95"

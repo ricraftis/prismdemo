@@ -14,7 +14,7 @@ import {
   ArrowRight
 } from 'lucide-react';
 
-const DigitalTransformation = ({ onBack, onConsultation, onDiagnostic }) => {
+const DigitalTransformation = ({ onBack, onConsultation, onDiagnostic, onHome }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -32,6 +32,17 @@ const DigitalTransformation = ({ onBack, onConsultation, onDiagnostic }) => {
             <span>Back to Overview</span>
           </button>
           
+          <button 
+            onClick={onHome}
+            className="flex items-center space-x-4 hover:scale-105 transition-transform"
+          >
+             <img 
+              src="/Prism Business Intiatives - 300px.jpg" 
+              alt="Prism Logo" 
+              className="h-10 w-auto"
+            />
+          </button>
+
           <div className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => document.getElementById('methodology')?.scrollIntoView({ behavior: 'smooth' })}
@@ -49,7 +60,7 @@ const DigitalTransformation = ({ onBack, onConsultation, onDiagnostic }) => {
               onClick={onConsultation}
               className="px-6 py-2 bg-[#00c1cf] text-white rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#00a8b5] transition-all shadow-sm active:scale-95"
             >
-              Book Consultation
+              Contact Us
             </button>
           </div>
         </div>

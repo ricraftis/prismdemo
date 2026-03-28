@@ -11,7 +11,7 @@ import {
   Search
 } from 'lucide-react';
 
-const FoundationalIntegrity = ({ onBack, onNavigateService, onConsultation, onDiagnostic }) => {
+const FoundationalIntegrity = ({ onBack, onNavigateService, onConsultation, onDiagnostic, onHome }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -27,6 +27,17 @@ const FoundationalIntegrity = ({ onBack, onNavigateService, onConsultation, onDi
           >
             <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
             <span>Back to Overview</span>
+          </button>
+          
+          <button 
+            onClick={onHome}
+            className="flex items-center space-x-4 hover:scale-105 transition-transform"
+          >
+             <img 
+              src="/Prism Business Intiatives - 300px.jpg" 
+              alt="Prism Logo" 
+              className="h-10 w-auto"
+            />
           </button>
           
           <div className="hidden md:flex items-center space-x-8">

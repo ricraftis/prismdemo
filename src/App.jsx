@@ -40,6 +40,7 @@ const App = () => {
     return (
       <FractionalCFO 
         onBack={() => setCurrentView('home')} 
+        onHome={() => setCurrentView('home')}
         onConsultation={() => setCurrentView('contact')}
         onDiagnostic={() => {
           setCurrentView('home');
@@ -53,6 +54,7 @@ const App = () => {
     return (
       <DigitalTransformation 
         onBack={() => setCurrentView('home')} 
+        onHome={() => setCurrentView('home')}
         onConsultation={() => setCurrentView('contact')}
         onDiagnostic={() => {
           setCurrentView('home');
@@ -66,6 +68,7 @@ const App = () => {
     return (
       <FoundationalIntegrity 
         onBack={() => setCurrentView('home')} 
+        onHome={() => setCurrentView('home')}
         onNavigateService={(service) => setCurrentView(service)}
         onConsultation={() => setCurrentView('contact')}
         onDiagnostic={() => {
@@ -80,6 +83,7 @@ const App = () => {
     return (
       <Bookkeeping 
         onBack={() => setCurrentView('foundational-integrity')} 
+        onHome={() => setCurrentView('home')}
         onConsultation={() => setCurrentView('contact')}
       />
     );
@@ -89,6 +93,7 @@ const App = () => {
     return (
       <Payroll 
         onBack={() => setCurrentView('foundational-integrity')} 
+        onHome={() => setCurrentView('home')}
         onConsultation={() => setCurrentView('contact')}
       />
     );
@@ -98,6 +103,7 @@ const App = () => {
     return (
       <BAS 
         onBack={() => setCurrentView('foundational-integrity')} 
+        onHome={() => setCurrentView('home')}
         onConsultation={() => setCurrentView('contact')}
       />
     );
@@ -105,7 +111,10 @@ const App = () => {
 
   if (currentView === 'contact') {
     return (
-      <Contact onBack={() => setCurrentView('home')} />
+      <Contact 
+        onBack={() => setCurrentView('home')} 
+        onHome={() => setCurrentView('home')}
+      />
     );
   }
 
@@ -150,7 +159,7 @@ const App = () => {
                 onClick={() => setCurrentView('contact')}
                 className="bg-[#00c1cf] text-white px-7 py-3 rounded-full text-sm font-bold hover:bg-[#00a8b5] transition-all shadow-xl hover:shadow-[#00c1cf]/10 active:scale-95"
               >
-                Book Consultation
+                Contact Us
               </button>
             </div>
 
@@ -576,11 +585,11 @@ const App = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
             <div className="mb-12 md:mb-0">
-              <div className="flex items-center space-x-4 mb-6">
+              <div className="flex items-center space-x-4 mb-6 cursor-pointer group" onClick={() => setCurrentView('home')}>
                 <img 
                   src="/Prism Business Intiatives - 300px.jpg" 
                   alt="Prism Logo" 
-                  className="h-14 w-auto object-contain" 
+                  className="h-14 w-auto object-contain transition-transform group-hover:scale-105" 
                 />
                 <div className="flex flex-col">
                   <span className="text-xl font-black tracking-tight text-white block leading-none font-display">PRISM</span>

@@ -11,7 +11,7 @@ import {
   Search
 } from 'lucide-react';
 
-const BAS = ({ onBack, onConsultation }) => {
+const BAS = ({ onBack, onConsultation, onHome }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -52,13 +52,16 @@ const BAS = ({ onBack, onConsultation }) => {
             <span>Back to Hub</span>
           </button>
           
-          <div className="flex items-center space-x-4">
+          <button 
+            onClick={onHome}
+            className="flex items-center space-x-4 hover:scale-105 transition-transform"
+          >
              <img 
               src="/Prism Business Intiatives - 300px.jpg" 
               alt="Prism Logo" 
               className="h-10 w-auto"
             />
-          </div>
+          </button>
         </div>
       </nav>
 

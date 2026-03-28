@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
  
+## [1.3.8] - 2026-03-28
+
+### Changed
+- **Navigation Update:** Renamed "Book Consultation" to "Contact Us" in the primary navigation and sub-pages for clearer intent.
+- **Global Brand Connectivity:** Linked all "Prism Business Initiatives" logos throughout the application to the home page, ensuring a consistent return-to-base experience for users.
+
 ## [1.3.7] - 2026-03-28
 
 ### Added
