@@ -92,7 +92,7 @@ const Payroll = ({ onBack, onConsultation }) => {
               <div className="absolute -inset-10 bg-indigo-50/50 blur-[80px] rounded-full" />
               <div className="relative rounded-[3rem] overflow-hidden shadow-2xl border-4 border-white transform hover:scale-[1.02] transition-transform duration-700">
                 <img 
-                  src="/payroll_hero.png" 
+                  src="/Prism_payroll_Systems.jpg" 
                   alt="Modern Payroll Management" 
                   className="w-full h-auto aspect-[4/5] object-cover"
                 />
