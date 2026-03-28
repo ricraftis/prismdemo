@@ -297,7 +297,7 @@ const App = () => {
               </p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
                 {[
-                  "100% Free & Personalized", 
+                  "100% Free & Personalised", 
                   "Used by 50+ Regional SMEs", 
                   "Immediate PDF Insights", 
                   "Benchmark Against Industry"
@@ -324,7 +324,7 @@ const App = () => {
                     <div className="space-y-10 relative z-10">
                         {[
                             { step: "01", text: "Answer 7 quick questions about your business" },
-                            { step: "02", text: "Our algorithm analyzes your profit leaks" },
+                            { step: "02", text: "Our algorithm analyses your profit leaks" },
                             { step: "03", text: "Download your 'Growth Readiness' PDF report" }
                         ].map((item, i) => (
                             <div key={i} className="flex items-center space-x-6 group/step">
@@ -342,7 +342,7 @@ const App = () => {
                             ))}
                             <div className="w-12 h-12 rounded-full border-4 border-blue-950 bg-[#00c1cf] flex items-center justify-center text-xs font-black shadow-xl text-white">50+</div>
                         </div>
-                        <p className="text-sm font-bold text-blue-200/80">50+ local leaders have already optimized their core.</p>
+                        <p className="text-sm font-bold text-blue-200/80">50+ local leaders have already optimised their core.</p>
                     </div>
                 </div>
               </div>
@@ -423,7 +423,7 @@ const App = () => {
                 </div>
                 <h3 className="text-3xl font-black text-blue-950 mb-6 font-display">Digital Transformation</h3>
                 <p className="text-slate-500 mb-10 font-medium leading-relaxed">
-                  We modernize your 'back office' with cloud automation, integrating your CRM, inventory, and ledger for a single source of truth.
+                  We modernise your 'back office' with cloud automation, integrating your CRM, inventory, and ledger for a single source of truth.
                 </p>
                 <button 
                   onClick={() => {

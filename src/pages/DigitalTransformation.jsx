@@ -42,7 +42,7 @@ const DigitalTransformation = ({ onBack, onConsultation, onDiagnostic, onHome })
               <span className="text-[#00c1cf] text-xs font-black uppercase tracking-[0.2em]">Level 02: Operational Excellence</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-['Outfit'] font-black leading-[1.1] text-[#202020]">
-              Digital Transformation: <span className="text-[#00c1cf]">Automate</span> Operations & Maximize Efficiency
+              Digital Transformation: <span className="text-[#00c1cf]">Automate</span> Operations & Maximise Efficiency
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed max-w-xl">
               Transition from spreadsheet-dependency to a unified, cloud-based platform that provides real-time visibility and scales seamlessly with your business.
