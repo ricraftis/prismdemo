@@ -468,9 +468,11 @@ const App = () => {
               <div className="relative group">
                 <div className="absolute -inset-4 bg-slate-100 rounded-[3rem] -rotate-2 group-hover:rotate-0 transition-transform duration-700"></div>
                 <div className="aspect-[4/5] bg-slate-200 rounded-[2.5rem] overflow-hidden relative z-10 shadow-2xl">
-                    <div className="absolute inset-0 flex items-center justify-center text-slate-400 font-black uppercase tracking-[0.3em] text-sm text-center px-12 italic">
-                        The Strategic Edge
-                    </div>
+                    <img 
+                      src="/strategic_data_foundation.png" 
+                      alt="The Strategic Data Foundation" 
+                      className="w-full h-full object-cover" 
+                    />
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-950/90 to-transparent p-12">
                         <p className="text-white font-black text-2xl font-display leading-[0.95]">Impact Through Precision.</p>
                     </div>
