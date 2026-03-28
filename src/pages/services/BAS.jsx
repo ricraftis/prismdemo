@@ -8,8 +8,13 @@ import {
   ChevronRight,
   Zap,
   BarChart3,
-  Search
+  Search,
+  Lock,
+  FileCheck,
+  Menu,
+  X
 } from 'lucide-react';
+import Navigation from '../../components/Navigation';
 
 const BAS = ({ onBack, onConsultation, onHome }) => {
   useEffect(() => {
@@ -41,29 +46,14 @@ const BAS = ({ onBack, onConsultation, onHome }) => {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-blue-100">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <button 
-            onClick={onBack}
-            className="flex items-center space-x-2 text-sm font-black uppercase tracking-widest text-slate-500 hover:text-blue-900 transition-colors group"
-          >
-            <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
-            <span>Back to Hub</span>
-          </button>
-          
-          <button 
-            onClick={onHome}
-            className="flex items-center space-x-4 hover:scale-105 transition-transform"
-          >
-             <img 
-              src="/Prism Business Intiatives - 300px.jpg" 
-              alt="Prism Logo" 
-              className="h-10 w-auto"
-            />
-          </button>
-        </div>
-      </nav>
+      {/* Common Navigation */}
+      <Navigation 
+        onBack={onBack}
+        onHome={onHome}
+        onConsultation={onConsultation}
+        showBack={true}
+        isLight={true}
+      />
 
       {/* Hero Section */}
       <section className="pt-32 pb-24 px-6 overflow-hidden">
@@ -181,7 +171,7 @@ const BAS = ({ onBack, onConsultation, onHome }) => {
               onClick={onConsultation}
               className="bg-blue-600 text-white px-12 py-6 rounded-2xl font-black text-lg hover:bg-blue-700 transition-all shadow-2xl hover:shadow-blue-600/20"
             >
-              Start My Health Check
+              Contact Us
             </button>
             <button 
               onClick={onBack}

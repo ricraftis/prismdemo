@@ -8,8 +8,12 @@ import {
   Clock, 
   ChevronRight,
   Zap,
-  BarChart3
+  BarChart3,
+  Settings,
+  Menu,
+  X
 } from 'lucide-react';
+import Navigation from '../../components/Navigation';
 
 const Payroll = ({ onBack, onConsultation, onHome }) => {
   useEffect(() => {
@@ -41,29 +45,14 @@ const Payroll = ({ onBack, onConsultation, onHome }) => {
 
   return (
     <div className="min-h-screen bg-white text-slate-900 font-sans selection:bg-indigo-100">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-xl border-b border-slate-100">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <button 
-            onClick={onBack}
-            className="flex items-center space-x-2 text-sm font-black uppercase tracking-widest text-slate-500 hover:text-indigo-900 transition-colors group"
-          >
-            <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
-            <span>Back to Hub</span>
-          </button>
-          
-          <button 
-            onClick={onHome}
-            className="flex items-center space-x-4 hover:scale-105 transition-transform"
-          >
-             <img 
-              src="/Prism Business Intiatives - 300px.jpg" 
-              alt="Prism Logo" 
-              className="h-10 w-auto"
-            />
-          </button>
-        </div>
-      </nav>
+      {/* Common Navigation */}
+      <Navigation 
+        onBack={onBack}
+        onHome={onHome}
+        onConsultation={onConsultation}
+        showBack={true}
+        isLight={true}
+      />
 
       {/* Hero Section */}
       <section className="pt-32 pb-24 px-6 overflow-hidden">
@@ -185,7 +174,7 @@ const Payroll = ({ onBack, onConsultation, onHome }) => {
               onClick={onConsultation}
               className="bg-indigo-600 text-white px-12 py-6 rounded-2xl font-black text-lg hover:bg-indigo-700 transition-all shadow-2xl hover:shadow-indigo-600/20"
             >
-              Get Started Today
+              Contact Us
             </button>
             <button 
               onClick={onBack}

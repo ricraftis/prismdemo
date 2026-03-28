@@ -21,6 +21,7 @@ import Bookkeeping from './pages/services/Bookkeeping';
 import Payroll from './pages/services/Payroll';
 import BAS from './pages/services/BAS';
 import Contact from './pages/Contact';
+import Navigation from './components/Navigation';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -123,70 +124,14 @@ const App = () => {
       {/* Noise Overlay for Texture */}
       <div className="noise-overlay"></div>
 
-      {/* Navigation */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-24 items-center">
-            <div className="flex items-center space-x-4 group cursor-pointer" onClick={() => scrollTo('top')}>
-              <img 
-                src="/Prism Business Intiatives - 300px.jpg" 
-                alt="Prism Business Initiatives" 
-                className="h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
-              />
-              <div className="flex flex-col">
-                <span className="text-2xl font-black tracking-tight text-[#202020] block leading-none font-display">PRISM</span>
-                <span className="text-[10px] uppercase tracking-[0.3em] text-slate-500 font-bold">Business Initiatives</span>
-              </div>
-            </div>
-
-            {/* Desktop Nav */}
-            <div className="hidden md:flex items-center space-x-10">
-              {['Services', 'Health Check', 'About'].map((item) => (
-                <button 
-                  key={item}
-                  onClick={() => {
-                    const idMap = { 'health check': 'diagnostic' };
-                    const target = idMap[item.toLowerCase()] || item.toLowerCase().replace(' ', '');
-                    scrollTo(target);
-                  }} 
-                  className="text-sm font-semibold text-slate-500 hover:text-[#00c1cf] transition-all relative group"
-                >
-                  {item}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#00c1cf] transition-all group-hover:w-full"></span>
-                </button>
-              ))}
-              <button 
-                onClick={() => setCurrentView('contact')}
-                className="bg-[#00c1cf] text-white px-7 py-3 rounded-full text-sm font-bold hover:bg-[#00a8b5] transition-all shadow-xl hover:shadow-[#00c1cf]/10 active:scale-95"
-              >
-                Contact Us
-              </button>
-            </div>
-
-            {/* Mobile Toggle */}
-            <div className="md:hidden">
-              <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="p-2 text-slate-600 hover:bg-slate-100 rounded-lg transition-colors">
-                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-              </button>
-            </div>
-          </div>
-        </div>
-
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="md:hidden bg-white/95 backdrop-blur-lg border-b border-slate-200 p-6 space-y-6 animate-fade-in-up">
-            <button onClick={() => scrollTo('services')} className="block w-full text-left text-lg font-bold text-slate-800">Services</button>
-            <button onClick={() => scrollTo('diagnostic')} className="block w-full text-left text-lg font-bold text-slate-800">Health Check</button>
-            <button onClick={() => scrollTo('about')} className="block w-full text-left text-lg font-bold text-slate-800">About</button>
-            <button 
-              onClick={() => setCurrentView('contact')}
-              className="block w-full bg-[#00c1cf] text-white px-6 py-4 rounded-2xl font-bold text-center shadow-lg active:scale-[0.98]"
-            >
-              Book Consultation
-            </button>
-          </div>
-        )}
-      </nav>
+      {/* Common Navigation */}
+      <Navigation 
+        onHome={() => setCurrentView('home')}
+        onConsultation={() => setCurrentView('contact')}
+        onBack={() => setCurrentView('home')}
+        showBack={currentView !== 'home'}
+        isLight={true}
+      />
 
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 lg:pt-36 lg:pb-32 gradient-mesh">
@@ -570,12 +515,12 @@ const App = () => {
             >
               Start Free Diagnostic
             </button>
-              <button 
-                onClick={() => setCurrentView('contact')} 
-                className="hover:text-white transition-colors text-left"
-              >
-                Book Consultation
-              </button>
+            <button 
+              onClick={() => setCurrentView('contact')}
+              className="bg-blue-950 text-white px-12 py-6 rounded-2xl font-black text-lg hover:bg-blue-900 transition-all shadow-2xl active:scale-95"
+            >
+              Contact Us
+            </button>
           </div>
         </div>
       </section>
@@ -611,7 +556,7 @@ const App = () => {
                 onClick={() => setCurrentView('contact')} 
                 className="hover:text-white transition-colors text-left"
               >
-                Contact
+                Contact Us
               </button>
               <span className="text-slate-700">© 2026</span>
             </div>

@@ -7,42 +7,23 @@ import {
   ArrowLeft,
   PieChart,
   Target,
-  FileSearch
+  FileSearch,
+  Menu,
+  X
 } from 'lucide-react';
+import Navigation from '../components/Navigation';
 
 const FractionalCFO = ({ onBack, onConsultation, onDiagnostic, onHome }) => {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-100 relative overflow-hidden">
-      {/* Navigation - Minimal for Service Page */}
-      <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-xl border-b border-slate-200/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between h-20 items-center">
-            <button 
-              onClick={onBack}
-              className="flex items-center space-x-2 text-slate-500 hover:text-blue-900 transition-colors font-bold text-sm group"
-            >
-              <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
-              <span>Back to Overview</span>
-            </button>
-            <button 
-              onClick={onHome}
-              className="flex items-center space-x-4 hover:scale-105 transition-transform"
-            >
-               <img 
-                src="/Prism Business Intiatives - 300px.jpg" 
-                alt="Prism Logo" 
-                className="h-10 w-auto"
-              />
-            </button>
-            <button 
-              onClick={onConsultation}
-              className="bg-blue-950 text-white px-6 py-2.5 rounded-full text-xs font-black hover:bg-blue-900 transition-all shadow-lg active:scale-95"
-            >
-              Book Now
-            </button>
-          </div>
-        </div>
-      </nav>
+      {/* Common Navigation */}
+      <Navigation 
+        onBack={onBack}
+        onHome={onHome}
+        onConsultation={onConsultation}
+        showBack={true}
+        isLight={true}
+      />
 
       {/* Hero Section */}
       <section className="relative pt-20 pb-16 lg:pt-32 lg:pb-24 overflow-hidden">
@@ -63,7 +44,7 @@ const FractionalCFO = ({ onBack, onConsultation, onDiagnostic, onHome }) => {
                   onClick={onConsultation}
                   className="bg-[#00c1cf] text-white px-10 py-5 rounded-2xl font-black hover:bg-[#00a8b5] transition-all shadow-2xl hover:shadow-[#00c1cf]/20 flex items-center justify-center group"
                 >
-                  Schedule Consultation
+                  Contact Us
                   <ChevronRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>
@@ -222,7 +203,7 @@ const FractionalCFO = ({ onBack, onConsultation, onDiagnostic, onHome }) => {
               onClick={onConsultation}
               className="bg-blue-950 text-white px-12 py-6 rounded-2xl font-black text-lg hover:bg-blue-900 transition-all shadow-2xl"
             >
-              Book Consultation
+              Contact Us
             </button>
           </div>
         </div>

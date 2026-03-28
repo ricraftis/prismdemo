@@ -8,8 +8,11 @@ import {
   CheckCircle2, 
   ShieldCheck,
   Send,
-  MessageSquare
+  MessageSquare,
+  Menu,
+  X
 } from 'lucide-react';
+import Navigation from '../components/Navigation';
 
 const Contact = ({ onBack, onHome }) => {
   useEffect(() => {
@@ -68,29 +71,14 @@ const Contact = ({ onBack, onHome }) => {
 
   return (
     <div className="min-h-screen bg-white text-[#202020] font-['Plus_Jakarta_Sans']">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100 h-20 flex items-center">
-        <div className="max-w-7xl mx-auto px-6 w-full flex items-center justify-between">
-          <button 
-            onClick={onBack}
-            className="flex items-center space-x-2 text-sm font-bold uppercase tracking-widest text-slate-500 hover:text-blue-950 transition-colors group"
-          >
-            <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
-            <span>Back</span>
-          </button>
-          
-          <button 
-            onClick={onHome}
-            className="flex items-center space-x-4 hover:scale-105 transition-transform"
-          >
-             <img 
-              src="/Prism Business Intiatives - 300px.jpg" 
-              alt="Prism Logo" 
-              className="h-10 w-auto"
-            />
-          </button>
-        </div>
-      </nav>
+      {/* Common Navigation */}
+      <Navigation 
+        onBack={onBack}
+        onHome={onHome}
+        onConsultation={() => {}} // Already on contact
+        showBack={true}
+        isLight={true}
+      />
 
       <section className="pt-20 px-4">
         <div className="max-w-7xl mx-auto">

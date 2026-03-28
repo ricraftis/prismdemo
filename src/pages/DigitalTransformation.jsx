@@ -11,8 +11,11 @@ import {
   Cloud, 
   Users, 
   Zap,
-  ArrowRight
+  ArrowRight,
+  Menu,
+  X
 } from 'lucide-react';
+import Navigation from '../components/Navigation';
 
 const DigitalTransformation = ({ onBack, onConsultation, onDiagnostic, onHome }) => {
   useEffect(() => {
@@ -21,50 +24,14 @@ const DigitalTransformation = ({ onBack, onConsultation, onDiagnostic, onHome })
 
   return (
     <div className="min-h-screen bg-[#fcfcfc] text-[#202020] font-['Plus_Jakarta_Sans']">
-      {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-          <button 
-            onClick={onBack}
-            className="flex items-center space-x-2 text-sm font-bold uppercase tracking-widest text-[#00c1cf] hover:text-[#00a8b5] transition-colors group"
-          >
-            <ArrowLeft size={18} className="group-hover:-translate-x-1 transition-transform" />
-            <span>Back to Overview</span>
-          </button>
-          
-          <button 
-            onClick={onHome}
-            className="flex items-center space-x-4 hover:scale-105 transition-transform"
-          >
-             <img 
-              src="/Prism Business Intiatives - 300px.jpg" 
-              alt="Prism Logo" 
-              className="h-10 w-auto"
-            />
-          </button>
-
-          <div className="hidden md:flex items-center space-x-8">
-            <button 
-              onClick={() => document.getElementById('methodology')?.scrollIntoView({ behavior: 'smooth' })}
-              className="text-sm font-bold uppercase tracking-widest hover:text-[#00c1cf] transition-colors"
-            >
-              Methodology
-            </button>
-            <button 
-              onClick={() => document.getElementById('roadmap')?.scrollIntoView({ behavior: 'smooth' })}
-              className="text-sm font-bold uppercase tracking-widest hover:text-[#00c1cf] transition-colors"
-            >
-              Roadmap
-            </button>
-            <button 
-              onClick={onConsultation}
-              className="px-6 py-2 bg-[#00c1cf] text-white rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#00a8b5] transition-all shadow-sm active:scale-95"
-            >
-              Contact Us
-            </button>
-          </div>
-        </div>
-      </nav>
+      {/* Common Navigation */}
+      <Navigation 
+        onBack={onBack}
+        onHome={onHome}
+        onConsultation={onConsultation}
+        showBack={true}
+        isLight={true}
+      />
 
       {/* Hero Section */}
       <section className="pt-40 pb-24 px-6">
@@ -284,7 +251,7 @@ const DigitalTransformation = ({ onBack, onConsultation, onDiagnostic, onHome })
               onClick={onConsultation}
               className="px-12 py-6 bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-2xl font-black text-sm uppercase tracking-[0.2em] hover:bg-white/20 transition-all active:scale-95"
             >
-              Book Consultation
+              Contact Us
             </button>
           </div>
         </div>
