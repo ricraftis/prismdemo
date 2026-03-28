@@ -20,10 +20,11 @@ import FoundationalIntegrity from './pages/FoundationalIntegrity';
 import Bookkeeping from './pages/services/Bookkeeping';
 import Payroll from './pages/services/Payroll';
 import BAS from './pages/services/BAS';
+import Contact from './pages/Contact';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentView, setCurrentView] = useState('home'); // 'home', 'fractional-cfo', 'digital-transformation', 'foundational-integrity', 'bookkeeping', 'payroll', 'bas'
+  const [currentView, setCurrentView] = useState('home'); // 'home', 'fractional-cfo', 'digital-transformation', 'foundational-integrity', 'bookkeeping', 'payroll', 'bas', 'contact'
 
   // Smooth scroll helper
   const scrollTo = (id) => {
@@ -39,10 +40,7 @@ const App = () => {
     return (
       <FractionalCFO 
         onBack={() => setCurrentView('home')} 
-        onConsultation={() => {
-          setCurrentView('home');
-          setTimeout(() => scrollTo('diagnostic'), 300);
-        }}
+        onConsultation={() => setCurrentView('contact')}
         onDiagnostic={() => {
           setCurrentView('home');
           setTimeout(() => scrollTo('diagnostic'), 300);
@@ -55,10 +53,7 @@ const App = () => {
     return (
       <DigitalTransformation 
         onBack={() => setCurrentView('home')} 
-        onConsultation={() => {
-          setCurrentView('home');
-          setTimeout(() => scrollTo('diagnostic'), 300);
-        }}
+        onConsultation={() => setCurrentView('contact')}
         onDiagnostic={() => {
           setCurrentView('home');
           setTimeout(() => scrollTo('diagnostic'), 300);
@@ -72,10 +67,7 @@ const App = () => {
       <FoundationalIntegrity 
         onBack={() => setCurrentView('home')} 
         onNavigateService={(service) => setCurrentView(service)}
-        onConsultation={() => {
-          setCurrentView('home');
-          setTimeout(() => scrollTo('diagnostic'), 300);
-        }}
+        onConsultation={() => setCurrentView('contact')}
         onDiagnostic={() => {
           setCurrentView('home');
           setTimeout(() => scrollTo('diagnostic'), 300);
@@ -88,10 +80,7 @@ const App = () => {
     return (
       <Bookkeeping 
         onBack={() => setCurrentView('foundational-integrity')} 
-        onConsultation={() => {
-          setCurrentView('home');
-          setTimeout(() => scrollTo('diagnostic'), 300);
-        }}
+        onConsultation={() => setCurrentView('contact')}
       />
     );
   }
@@ -100,10 +89,7 @@ const App = () => {
     return (
       <Payroll 
         onBack={() => setCurrentView('foundational-integrity')} 
-        onConsultation={() => {
-          setCurrentView('home');
-          setTimeout(() => scrollTo('diagnostic'), 300);
-        }}
+        onConsultation={() => setCurrentView('contact')}
       />
     );
   }
@@ -112,11 +98,14 @@ const App = () => {
     return (
       <BAS 
         onBack={() => setCurrentView('foundational-integrity')} 
-        onConsultation={() => {
-          setCurrentView('home');
-          setTimeout(() => scrollTo('diagnostic'), 300);
-        }}
+        onConsultation={() => setCurrentView('contact')}
       />
+    );
+  }
+
+  if (currentView === 'contact') {
+    return (
+      <Contact onBack={() => setCurrentView('home')} />
     );
   }
 
@@ -158,7 +147,7 @@ const App = () => {
                 </button>
               ))}
               <button 
-                onClick={() => scrollTo('diagnostic')}
+                onClick={() => setCurrentView('contact')}
                 className="bg-[#00c1cf] text-white px-7 py-3 rounded-full text-sm font-bold hover:bg-[#00a8b5] transition-all shadow-xl hover:shadow-[#00c1cf]/10 active:scale-95"
               >
                 Book Consultation
@@ -181,7 +170,7 @@ const App = () => {
             <button onClick={() => scrollTo('diagnostic')} className="block w-full text-left text-lg font-bold text-slate-800">Health Check</button>
             <button onClick={() => scrollTo('about')} className="block w-full text-left text-lg font-bold text-slate-800">About</button>
             <button 
-              onClick={() => scrollTo('diagnostic')}
+              onClick={() => setCurrentView('contact')}
               className="block w-full bg-[#00c1cf] text-white px-6 py-4 rounded-2xl font-bold text-center shadow-lg active:scale-[0.98]"
             >
               Book Consultation
@@ -572,12 +561,12 @@ const App = () => {
             >
               Start Free Diagnostic
             </button>
-            <button 
-              onClick={() => scrollTo('diagnostic')}
-              className="bg-transparent border-2 border-white/20 text-white px-12 py-6 rounded-2xl font-black text-lg hover:bg-white/5 transition-all active:scale-95"
-            >
-              Book Consultation
-            </button>
+              <button 
+                onClick={() => setCurrentView('contact')} 
+                className="hover:text-white transition-colors text-left"
+              >
+                Book Consultation
+              </button>
           </div>
         </div>
       </section>
@@ -610,7 +599,7 @@ const App = () => {
                 Strategy
               </button>
               <button 
-                onClick={() => scrollTo('diagnostic')} 
+                onClick={() => setCurrentView('contact')} 
                 className="hover:text-white transition-colors text-left"
               >
                 Contact

@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
  
+## [1.3.7] - 2026-03-28
+
+### Added
+- **Premium Contact Page:** Launched a dedicated Contact page (`Contact.jsx`) featuring a custom query form, preferred contact method logic, and Recaptcha provision.
+- **Strategic Visuals:** Integrated `rebecaaHearn.jpg` as the central hero visual to foster a personal and professional connection.
+- **Navigation Update:** Re-routed all "Book Consultation" and "Contact" CTAs throughout the application to the new dedicated Contact page.
+
 ## [1.3.6] - 2026-03-28
 
 ### Added
