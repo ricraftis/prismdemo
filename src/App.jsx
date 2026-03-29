@@ -502,10 +502,14 @@ const App = () => {
                   I founded Prism Business Initiatives to bridge that gap. We bring Tier-1 strategic thinking to Victorian business owners—starting with an unbreakable foundation of data, followed by the foresight of a Fractional CFO.
                 </p>
               </div>
-              <div className="mt-16 flex items-center space-x-12 opacity-90">
+              <div className="mt-16 flex items-center space-x-12 px-8 py-6 bg-slate-50/50 backdrop-blur-sm rounded-3xl border border-slate-100 shadow-sm opacity-90 transition-opacity">
                 <img src="/CPA.png" alt="CPA Australia" className="h-10 md:h-12 w-auto object-contain hover:scale-110 transition-transform" />
-                <img src="/registeredBASagent.png" alt="Registered BAS Agent" className="h-10 md:h-12 w-auto object-contain hover:scale-110 transition-transform" />
-                <img src="/xero-advisor-certified-individual-badge.avif" alt="Xero Advisor" className="h-12 md:h-16 w-auto object-contain hover:scale-110 transition-transform" />
+                <div className="h-10 md:h-12 flex items-center bg-blue-950 px-4 rounded-xl shadow-inner">
+                  <img src="/registeredBASagent.png" alt="Registered BAS Agent" className="h-6 md:h-8 w-auto object-contain hover:scale-110 transition-all cursor-help" title="Registered BAS Agent" />
+                </div>
+                <div className="h-10 md:h-12 flex items-center bg-blue-950 px-4 rounded-xl shadow-inner">
+                    <img src="/xero-advisor-certified-individual-badge.avif" alt="Xero Advisor" className="h-6 md:h-8 w-auto object-contain hover:scale-110 transition-transform" />
+                </div>
                 <img src="/Partner-Program-logo-Purple-horizontal-300x91.avif" alt="Partner Program" className="h-6 md:h-8 w-auto object-contain hover:scale-110 transition-transform" />
               </div>
             </div>

@@ -49,18 +49,89 @@ const SurveyFlow = () => {
   };
 
   if (isComplete) {
+    const reportData = activeQuestions.map(q => ({
+      question: q.text,
+      selected: answers[q.id]?.option || 'Not answered',
+      notes: answers[q.id]?.notes || ''
+    }));
+
     return (
-      <div className="max-w-2xl mx-auto p-12 bg-white rounded-[3rem] shadow-2xl text-center border mr-2 border-slate-100 animate-in fade-in zoom-in duration-500">
-        <div className="w-20 h-20 bg-emerald-50 rounded-full flex items-center justify-center mx-auto mb-8">
-            <CheckCircle className="w-12 h-12 text-emerald-600" />
+      <div className="max-w-4xl mx-auto space-y-8 animate-in fade-in slide-in-from-bottom duration-1000">
+        {/* Report Header */}
+        <div className="p-12 bg-white rounded-[3rem] shadow-2xl border border-slate-100 text-center relative overflow-hidden">
+          <div className="absolute top-0 right-0 p-12 opacity-5 pointer-events-none">
+            <CheckCircle className="w-48 h-48 text-emerald-600" />
+          </div>
+          <div className="relative z-10">
+            <div className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-600 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Diagnostic Complete</div>
+            <h2 className="text-4xl md:text-6xl font-black text-blue-950 mb-6 font-display leading-tight tracking-tighter">Your Strategic <span className="text-[#00c1cf]">Roadmap.</span></h2>
+            <p className="text-xl text-slate-500 font-medium max-w-2xl mx-auto">
+              Analysed for <span className="text-blue-950 font-black">{contactInfo.name}</span>. This report synthesises your operational data into an actionable growth profile.
+            </p>
+          </div>
         </div>
-        <h2 className="text-4xl font-black text-blue-950 mb-6 font-display">Diagnostic Complete.</h2>
-        <p className="text-slate-500 text-lg leading-relaxed font-medium">
-          Thank you, <span className="text-blue-950 font-black">{contactInfo.name}</span>. Your strategic profile has been submitted. 
-        </p>
-        <p className="text-slate-500 text-lg leading-relaxed font-medium mt-4">
-          Our AI and advisory team are preparing a bespoke response which will be sent to <span className="text-[#00c1cf] font-black">{contactInfo.email}</span>.
-        </p>
+
+        {/* AI Synthesis Section - Simulation of Gemini 2.5 Flash */}
+        <div className="p-12 bg-blue-950 text-white rounded-[3rem] shadow-2xl relative overflow-hidden group">
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent pointer-events-none" />
+          <div className="relative z-10">
+            <div className="flex items-center space-x-3 mb-8">
+              <div className="w-8 h-8 bg-[#00c1cf] rounded-lg flex items-center justify-center animate-pulse">
+                <div className="w-4 h-4 bg-white rounded-full bg-opacity-30" />
+              </div>
+              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#00c1cf]">AI Synthesis: Gemini 2.5 Flash (Testing)</span>
+            </div>
+            
+            <div className="space-y-8">
+               <div className="p-8 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
+                 <h3 className="text-2xl font-black mb-6 font-display text-[#00c1cf]">Strategic Observation</h3>
+                 <p className="text-lg text-blue-100/80 leading-relaxed font-medium">
+                   Based on your profile as a <span className="text-white font-black">{businessTypes.find(b => b.id === businessType).label}</span>, your primary leverage point is currently <span className="text-[#00c1cf] font-black italic">operational standardisation.</span> 
+                   The data suggests that while your vision is clear, the current {reportData[0].selected.toLowerCase()} bottleneck is creating a friction point that prevents sustainable scaling.
+                 </p>
+               </div>
+
+               <div className="grid md:grid-cols-2 gap-6">
+                 <div className="space-y-4">
+                   <h4 className="text-xs font-black uppercase tracking-widest text-blue-300">Targeted Priority</h4>
+                   <p className="text-sm text-blue-100/60 leading-relaxed">
+                     Focus on decoupling the founder's time from daily task execution. Your responses indicate a strong foundation that is ready for digital transformation.
+                   </p>
+                 </div>
+                 <div className="space-y-4">
+                   <h4 className="text-xs font-black uppercase tracking-widest text-blue-300">Risk Mitigation</h4>
+                   <p className="text-sm text-blue-100/60 leading-relaxed">
+                     Address the {reportData[1]?.selected.toLowerCase() || 'mixed'} financial separation to ensure 100% decision-ready accuracy for future capital requirements.
+                   </p>
+                 </div>
+               </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Your Responses Grid */}
+        <div className="grid gap-6">
+          <h3 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-400 pl-8">Detailed Insights Summary</h3>
+          {reportData.map((data, i) => (
+            <div key={i} className="p-8 bg-white rounded-[2rem] border border-slate-100 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6 group hover:border-[#00c1cf]/30 transition-all">
+              <div className="space-y-2">
+                <p className="text-xs font-black text-slate-300 uppercase tracking-widest">Question {i + 1}</p>
+                <p className="text-lg font-black text-blue-950 font-display leading-[0.95]">{data.question}</p>
+                {data.notes && <p className="text-sm text-slate-400 font-medium italic mt-2">"{data.notes}"</p>}
+              </div>
+              <div className="shrink-0 bg-blue-50 px-6 py-3 rounded-xl border border-blue-100 group-hover:bg-[#00c1cf] group-hover:text-white transition-all">
+                 <span className="text-sm font-black uppercase tracking-widest">{data.selected}</span>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <button 
+          onClick={() => window.location.reload()}
+          className="w-full py-8 text-slate-400 font-black uppercase tracking-[0.3em] text-xs hover:text-blue-950 transition-colors"
+        >
+          Reset Diagnostic & Start Over
+        </button>
       </div>
     );
   }
@@ -83,7 +154,7 @@ const SurveyFlow = () => {
                 type="text" 
                 value={contactInfo.name}
                 onChange={(e) => setContactInfo({...contactInfo, name: e.target.value})}
-                className="w-full p-6 bg-slate-50 border border-slate-100 rounded-2xl focus:bg-white focus:ring-2 focus:ring-[#00c1cf] focus:border-[#00c1cf] transition-all outline-none font-medium"
+                className="w-full p-6 bg-slate-50 border border-slate-100 rounded-2xl focus:bg-white focus:ring-2 focus:ring-[#00c1cf] focus:border-[#00c1cf] transition-all outline-none font-medium text-slate-900"
                 placeholder="CEO / Managing Director"
               />
             </div>
@@ -93,7 +164,7 @@ const SurveyFlow = () => {
                 type="email" 
                 value={contactInfo.email}
                 onChange={(e) => setContactInfo({...contactInfo, email: e.target.value})}
-                className="w-full p-6 bg-slate-50 border border-slate-100 rounded-2xl focus:bg-white focus:ring-2 focus:ring-[#00c1cf] focus:border-[#00c1cf] transition-all outline-none font-medium"
+                className="w-full p-6 bg-slate-50 border border-slate-100 rounded-2xl focus:bg-white focus:ring-2 focus:ring-[#00c1cf] focus:border-[#00c1cf] transition-all outline-none font-medium text-slate-900"
                 placeholder="strategy@yourcompany.com"
               />
             </div>
