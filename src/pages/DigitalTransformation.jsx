@@ -242,7 +242,7 @@ const DigitalTransformation = ({ onBack, onConsultation, onDiagnostic, onHome })
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center pt-8">
             <button 
-              onClick={onDiagnostic}
+              onClick={() => onDiagnostic(true)}
               className="px-12 py-6 bg-[#00c1cf] text-white rounded-2xl font-black text-sm uppercase tracking-[0.2em] shadow-xl hover:bg-[#00a8b5] transition-all hover:-translate-y-1 active:scale-95"
             >
               Start Your Diagnostic

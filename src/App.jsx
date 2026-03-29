@@ -22,16 +22,21 @@ import Payroll from './pages/services/Payroll';
 import BAS from './pages/services/BAS';
 import Contact from './pages/Contact';
 import Navigation from './components/Navigation';
+import SurveyFlow from './components/Survey/SurveyFlow';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [currentView, setCurrentView] = useState('home'); // 'home', 'fractional-cfo', 'digital-transformation', 'foundational-integrity', 'bookkeeping', 'payroll', 'bas', 'contact'
+  const [isDiagnosticStarted, setIsDiagnosticStarted] = useState(false);
 
   // Smooth scroll helper
-  const scrollTo = (id) => {
+  const scrollTo = (id, startDiagnostic = false) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
+    }
+    if (startDiagnostic) {
+      setIsDiagnosticStarted(true);
     }
     setIsMenuOpen(false);
     setCurrentView('home');
@@ -284,43 +289,44 @@ const App = () => {
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-indigo-600 rounded-full blur-[120px] opacity-20"></div>
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="lg:flex items-center justify-between gap-24">
-            <div className="lg:w-1/2 mb-20 lg:mb-0">
-              <div className="inline-block px-4 py-1.5 bg-blue-900/50 border border-blue-700 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-blue-300 mb-8">
-                Immediate Insights
-              </div>
-              <h2 className="text-5xl lg:text-7xl font-black mb-10 leading-[0.95] font-display">
-                Unlock Your <span className="text-[#00c1cf]">Score.</span>
-              </h2>
-              <p className="text-blue-100/70 text-xl mb-12 leading-relaxed font-medium">
-                Take our SME Growth Diagnostic to identify the gaps in your financial engine. Get a detailed report on Cash Flow, Systems, and Scalability.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
-                {[
-                  "100% Free & Personalised", 
-                  "Used by 50+ Regional SMEs", 
-                  "Immediate PDF Insights", 
-                  "Benchmark Against Industry"
-                ].map((point, i) => (
-                  <div key={i} className="flex items-center space-x-4">
-                    <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center">
-                        <CheckCircle2 size={12} className="text-blue-400" />
+          {!isDiagnosticStarted ? (
+            <div className="lg:flex items-center justify-between gap-24 transition-all duration-700">
+              <div className="lg:w-1/2 mb-20 lg:mb-0">
+                <div className="inline-block px-4 py-1.5 bg-blue-900/50 border border-blue-700 rounded-full text-[10px] font-black uppercase tracking-[0.3em] text-blue-300 mb-8">
+                  Immediate Insights
+                </div>
+                <h2 className="text-5xl lg:text-7xl font-black mb-10 leading-[0.95] font-display">
+                  Unlock Your <span className="text-[#00c1cf]">Score.</span>
+                </h2>
+                <p className="text-blue-100/70 text-xl mb-12 leading-relaxed font-medium">
+                  Take our SME Growth Diagnostic to identify the gaps in your financial engine. Get a detailed report on Cash Flow, Systems, and Scalability.
+                </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+                  {[
+                    "100% Free & Personalised", 
+                    "Used by 50+ Regional SMEs", 
+                    "Immediate PDF Insights", 
+                    "Benchmark Against Industry"
+                  ].map((point, i) => (
+                    <div key={i} className="flex items-center space-x-4">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-full bg-blue-500/20 border border-blue-500/50 flex items-center justify-center">
+                          <CheckCircle2 size={12} className="text-blue-400" />
+                      </div>
+                      <span className="font-bold text-sm text-blue-100">{point}</span>
                     </div>
-                    <span className="font-bold text-sm text-blue-100">{point}</span>
-                  </div>
-                ))}
+                  ))}
+                </div>
+                <button 
+                  onClick={() => setIsDiagnosticStarted(true)}
+                  className="w-full sm:w-auto bg-white text-[#202020] px-12 py-6 rounded-2xl font-black text-lg hover:bg-[#f8fafc] transition-all shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-1 active:translate-y-0"
+                >
+                  Start My Health Check
+                </button>
               </div>
-              <button 
-                onClick={() => scrollTo('diagnostic')}
-                className="w-full sm:w-auto bg-white text-[#202020] px-12 py-6 rounded-2xl font-black text-lg hover:bg-[#f8fafc] transition-all shadow-[0_20px_40px_rgba(0,0,0,0.3)] hover:-translate-y-1 active:translate-y-0"
-              >
-                Start My Health Check
-              </button>
-            </div>
-            <div className="lg:w-1/2">
-              <div className="relative group">
-                <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-10 group-hover:opacity-20 transition-opacity"></div>
-                <div className="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-10 lg:p-12 overflow-hidden shadow-2xl">
+              <div className="lg:w-1/2">
+                <div className="relative group">
+                  <div className="absolute inset-0 bg-blue-500 blur-3xl opacity-10 group-hover:opacity-20 transition-opacity"></div>
+                  <div className="relative bg-white/5 backdrop-blur-2xl border border-white/10 rounded-[2.5rem] p-10 lg:p-12 overflow-hidden shadow-2xl">
                     <div className="space-y-10 relative z-10">
                         {[
                             { step: "01", text: "Answer 7 quick questions about your business" },
@@ -344,10 +350,15 @@ const App = () => {
                         </div>
                         <p className="text-sm font-bold text-blue-200/80">50+ local leaders have already optimised their core.</p>
                     </div>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (
+            <div className="max-w-4xl mx-auto">
+                <SurveyFlow onComplete={() => setIsDiagnosticStarted(false)} />
+            </div>
+          )}
         </div>
       </section>
 
@@ -513,7 +524,7 @@ const App = () => {
           </p>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
             <button 
-              onClick={() => scrollTo('diagnostic')}
+              onClick={() => scrollTo('diagnostic', true)}
               className="bg-[#00c1cf] text-white px-12 py-6 rounded-2xl font-black text-lg hover:bg-[#00a8b5] transition-all shadow-2xl hover:shadow-[#00c1cf]/20 active:scale-95"
             >
               Start Free Diagnostic

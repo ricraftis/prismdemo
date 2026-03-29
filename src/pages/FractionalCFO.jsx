@@ -194,7 +194,7 @@ const FractionalCFO = ({ onBack, onConsultation, onDiagnostic, onHome }) => {
           </div>
           <div className="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-8">
             <button 
-              onClick={onDiagnostic}
+              onClick={() => onDiagnostic(true)}
               className="bg-[#00c1cf] text-white px-12 py-6 rounded-2xl font-black text-lg hover:bg-[#00a8b5] transition-all shadow-2xl hover:shadow-[#00c1cf]/20"
             >
               Start Free Diagnostic
