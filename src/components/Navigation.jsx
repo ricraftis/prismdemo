@@ -45,7 +45,7 @@ const Navigation = ({ onBack, onHome, onConsultation, showBack = false, isLight 
                <img 
                 src="/Prism Business Intiatives - 300px.jpg" 
                 alt="Prism Logo" 
-                className="h-10 w-auto"
+                className="w-[200px] h-auto"
               />
             </button>
           </div>
