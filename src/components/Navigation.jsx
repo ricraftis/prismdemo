@@ -24,7 +24,7 @@ const Navigation = ({ onBack, onHome, onConsultation, showBack = false, isLight 
       <nav className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-all duration-300 ${
         isLight ? 'bg-white/80 border-gray-100' : 'bg-blue-950/80 border-white/10 text-white'
       }`}>
-        <div className="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-7xl mx-auto px-6 min-h-[100px] flex items-center justify-between">
           <div className="flex items-center space-x-6">
             {showBack && (
               <button 
@@ -91,7 +91,7 @@ const Navigation = ({ onBack, onHome, onConsultation, showBack = false, isLight 
 
         {/* Mobile Menu Overlay */}
         {isMenuOpen && (
-          <div className={`md:hidden absolute top-20 left-0 right-0 border-b p-6 space-y-6 animate-in slide-in-from-top duration-300 ${
+          <div className={`md:hidden absolute top-[100px] left-0 right-0 border-b p-6 space-y-6 animate-in slide-in-from-top duration-300 ${
             isLight ? 'bg-white border-gray-100' : 'bg-blue-950 border-white/10 text-white'
           }`}>
             {navLinks.map((link) => (
