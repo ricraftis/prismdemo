@@ -40,7 +40,7 @@ const Navigation = ({ onBack, onHome, onConsultation, showBack = false, isLight 
             
             <button 
               onClick={onHome}
-              className="flex items-center space-x-4 hover:scale-105 transition-transform"
+              className="flex items-center space-x-4 hover:scale-105 transition-transform py-[10px]"
             >
                <img 
                 src="/Prism Business Intiatives - 300px.jpg" 
