@@ -15,7 +15,7 @@ import {
   ClipboardCheck
 } from 'lucide-react';
 import FractionalCFO from './pages/FractionalCFO';
-import DigitalTransformation from './pages/DigitalTransformation';
+import BusinessConsulting from './pages/BusinessConsulting';
 import FoundationalIntegrity from './pages/FoundationalIntegrity';
 import Bookkeeping from './pages/services/Bookkeeping';
 import Payroll from './pages/services/Payroll';
@@ -26,7 +26,7 @@ import SurveyFlow from './components/Survey/SurveyFlow';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentView, setCurrentView] = useState('home'); // 'home', 'fractional-cfo', 'digital-transformation', 'foundational-integrity', 'bookkeeping', 'payroll', 'bas', 'contact'
+  const [currentView, setCurrentView] = useState('home'); // 'home', 'fractional-cfo', 'business-consulting', 'foundational-integrity', 'bookkeeping', 'payroll', 'bas', 'contact'
   const [isDiagnosticStarted, setIsDiagnosticStarted] = useState(false);
 
   // Smooth scroll helper
@@ -56,15 +56,15 @@ const App = () => {
     );
   }
 
-  if (currentView === 'digital-transformation') {
+  if (currentView === 'business-consulting') {
     return (
-      <DigitalTransformation 
+      <BusinessConsulting 
         onBack={() => setCurrentView('home')} 
         onHome={() => setCurrentView('home')}
         onConsultation={() => setCurrentView('contact')}
-        onDiagnostic={() => {
+        onDiagnostic={(start = false) => {
           setCurrentView('home');
-          setTimeout(() => scrollTo('diagnostic'), 300);
+          setTimeout(() => scrollTo('diagnostic', start), 300);
         }}
       />
     );
@@ -432,18 +432,18 @@ const App = () => {
                 <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-blue-50 transition-colors">
                   <Settings2 className="text-blue-900" size={28} />
                 </div>
-                <h3 className="text-3xl font-black text-blue-950 mb-6 font-display">Digital Transformation</h3>
+                <h3 className="text-3xl font-black text-blue-950 mb-6 font-display">Business Consulting</h3>
                 <p className="text-slate-500 mb-10 font-medium leading-relaxed">
-                  We modernise your 'back office' with cloud automation, integrating your CRM, inventory, and ledger for a single source of truth.
+                  Strategic planning, asset acquisition, and financial health management. We integrate digital transformation as a core pillar of your broader business growth.
                 </p>
                 <button 
                   onClick={() => {
                     window.scrollTo(0, 0);
-                    setCurrentView('digital-transformation');
+                    setCurrentView('business-consulting');
                   }}
                   className="inline-flex items-center space-x-3 bg-white border-2 border-[#00c1cf] text-[#00c1cf] px-8 py-3 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-[#00c1cf] hover:text-white transition-all duration-300 shadow-sm hover:shadow-lg group/btn active:scale-95"
                 >
-                  <span>Explore Digital Roadmap</span>
+                  <span>Explore Consulting Roadmap</span>
                   <ChevronRight size={18} className="group-hover/btn:translate-x-1 transition-transform" />
                 </button>
             </div>
