@@ -436,6 +436,23 @@ const App = () => {
                 <p className="text-slate-500 mb-10 font-medium leading-relaxed">
                   Strategic planning, asset acquisition, and financial health management. We integrate digital transformation as a core pillar of your broader business growth.
                 </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-12">
+                  {[
+                    "Strategic Planning",
+                    "Asset Acquisition",
+                    "Profit Maximisation",
+                    "Financial Health Audits",
+                    "Risk Management",
+                    "M&A Advisory"
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center space-x-3 group/item cursor-pointer">
+                      <div className="w-5 h-5 bg-blue-50 rounded flex items-center justify-center group-hover/item:bg-blue-950 transition-colors">
+                        <ArrowRight size={10} className="text-blue-900 group-hover/item:text-white" />
+                      </div>
+                      <span className="text-sm font-bold text-slate-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
                 <button 
                   onClick={() => {
                     window.scrollTo(0, 0);
@@ -456,6 +473,23 @@ const App = () => {
                 <p className="text-slate-500 mb-10 font-medium leading-relaxed">
                   Flawless bookkeeping and payroll management. decision-ready accuracy so you never have to guess your position.
                 </p>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-8 mb-12">
+                  {[
+                    "Precision Bookkeeping",
+                    "BAS & Tax Governance",
+                    "Payroll Automation",
+                    "STP Compliance",
+                    "Accounts Management",
+                    "Year-End Reporting"
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-center space-x-3 group/item cursor-pointer">
+                      <div className="w-5 h-5 bg-blue-50 rounded flex items-center justify-center group-hover/item:bg-blue-950 transition-colors">
+                        <ArrowRight size={10} className="text-blue-900 group-hover/item:text-white" />
+                      </div>
+                      <span className="text-sm font-bold text-slate-700">{item}</span>
+                    </div>
+                  ))}
+                </div>
                 <button 
                   onClick={() => {
                     window.scrollTo(0, 0);
