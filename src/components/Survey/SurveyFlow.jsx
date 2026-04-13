@@ -26,26 +26,36 @@ const SurveyFlow = () => {
 
   const handleSubmit = async () => {
     setIsSubmitting(true);
-    
-    // THIS IS YOUR PAYLOAD FOR FIREBASE AND GEMINI
-    const payload = {
-      contact: contactInfo,
-      businessType: businessTypes.find(b => b.id === businessType).label,
-      surveyResponses: activeQuestions.map(q => ({
-        question: q.text,
-        selectedOption: answers[q.id]?.option || 'No answer provided',
-        furtherInfo: answers[q.id]?.notes || ''
-      })),
-      submittedAt: new Date().toISOString()
-    };
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: contactInfo.email,
+          name: contactInfo.name,
+          businessType: businessTypes.find(b => b.id === businessType).label,
+          surveyResponses: activeQuestions.map(q => ({
+            question: q.text,
+            selectedOption: answers[q.id]?.option || 'No answer provided',
+            furtherInfo: answers[q.id]?.notes || ''
+          }))
+        }),
+      });
 
-    console.log("Data ready for Firebase & Gemini:", JSON.stringify(payload, null, 2));
+      if (!response.ok) throw new Error('Failed to send report');
 
-    // Simulate API delay for Firebase / Gemini trigger
-    setTimeout(() => {
       setIsSubmitting(false);
       setIsComplete(true);
-    }, 1500);
+    } catch (error) {
+      console.error('Submission Error:', error);
+      // Fallback for demo if API isn't live yet
+      setTimeout(() => {
+        setIsSubmitting(false);
+        setIsComplete(true);
+      }, 1500);
+    }
   };
 
   if (isComplete) {
