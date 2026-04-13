@@ -36,7 +36,7 @@ const BusinessConsulting = ({ onBack, onConsultation, onDiagnostic, onHome }) =>
           <div className="space-y-8 animate-in fade-in slide-in-from-left duration-1000">
             <div className="inline-flex items-center space-x-2 px-4 py-2 bg-[#00c1cf]/10 rounded-full">
               <div className="w-2 h-2 bg-[#00c1cf] rounded-full animate-pulse" />
-              <span className="text-[#00c1cf] text-xs font-black uppercase tracking-[0.2em]">Level 02: Strategic Growth</span>
+              <span className="text-[#00c1cf] text-xs font-black uppercase tracking-[0.2em]">Level 02: Planning</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-['Outfit'] font-black leading-[1.1] text-[#202020]">
               Business Consulting: <span className="text-[#00c1cf]">Strategy</span> & Growth Advisory

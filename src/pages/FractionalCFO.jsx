@@ -31,7 +31,7 @@ const FractionalCFO = ({ onBack, onConsultation, onDiagnostic, onHome }) => {
           <div className="lg:grid lg:grid-cols-12 lg:gap-16 items-center">
             <div className="lg:col-span-7 mb-16 lg:mb-0">
               <div className="inline-flex items-center space-x-3 bg-blue-50 border border-blue-100 px-4 py-2 rounded-full text-[10px] font-black uppercase tracking-widest text-blue-900 mb-8">
-                Strategic Growth
+                Level 01: Elevation
               </div>
               <h1 className="text-5xl lg:text-7xl font-black text-[#202020] tracking-tighter leading-[0.95] mb-8 font-display">
                 Fractional CFO Services: <span className="spectrum-gradient">Strategic Financial Leadership.</span>

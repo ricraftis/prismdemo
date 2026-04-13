@@ -432,6 +432,7 @@ const App = () => {
                 <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-blue-50 transition-colors">
                   <Settings2 className="text-blue-900" size={28} />
                 </div>
+                <div className="inline-block px-4 py-1 bg-blue-50 text-blue-700 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Level 02: Planning</div>
                 <h3 className="text-3xl font-black text-blue-950 mb-6 font-display">Business Consulting</h3>
                 <p className="text-slate-500 mb-10 font-medium leading-relaxed">
                   Strategic planning, asset acquisition, and financial health management. We integrate digital transformation as a core pillar of your broader business growth.
@@ -469,6 +470,7 @@ const App = () => {
                 <div className="w-16 h-16 bg-slate-50 rounded-2xl flex items-center justify-center mb-10 group-hover:bg-blue-50 transition-colors">
                   <ShieldCheck className="text-blue-900" size={28} />
                 </div>
+                <div className="inline-block px-4 py-1 bg-blue-50 text-blue-700 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Level 03: Vital Knowledge</div>
                 <h3 className="text-3xl font-black text-blue-950 mb-6 font-display">Foundational Integrity</h3>
                 <p className="text-slate-500 mb-10 font-medium leading-relaxed">
                   Flawless bookkeeping and payroll management. decision-ready accuracy so you never have to guess your position.

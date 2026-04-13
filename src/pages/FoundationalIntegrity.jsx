@@ -34,9 +34,9 @@ const FoundationalIntegrity = ({ onBack, onNavigateService, onConsultation, onDi
       <section className="pt-40 pb-24 px-6">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2 gap-20 items-center">
           <div className="space-y-10 animate-in fade-in slide-in-from-left duration-1000">
-            <div className="inline-flex items-center space-x-3 px-4 py-2 bg-emerald-50 rounded-full">
-              <ShieldCheck size={16} className="text-emerald-600" />
-              <span className="text-emerald-700 text-xs font-black uppercase tracking-[0.2em]">Level 03: Foundational Integrity</span>
+            <div className="inline-flex items-center space-x-2 px-4 py-2 bg-blue-900/10 rounded-full mb-8">
+              <div className="w-2 h-2 bg-blue-900 rounded-full animate-pulse" />
+              <span className="text-blue-900 text-xs font-black uppercase tracking-[0.2em]">Level 03: Vital Knowledge</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-['Outfit'] font-black leading-[1.1] text-[#202020] tracking-tight">
               Precision Data.<br />
