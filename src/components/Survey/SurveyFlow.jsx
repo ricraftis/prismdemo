@@ -144,7 +144,10 @@ const SurveyFlow = () => {
         <div className="space-y-8 p-10 bg-white rounded-[3rem] shadow-2xl border border-slate-100">
           <div className="space-y-4">
               <h2 className="text-4xl font-black text-blue-950 font-display leading-tight tracking-tighter italic">"Precision starts with identity."</h2>
-              <p className="text-slate-500 font-medium">Please provide your details so we can deliver your bespoke strategic analysis.</p>
+              <p className="text-slate-500 font-medium leading-relaxed">
+                Please provide your details so we can deliver your bespoke strategic analysis. <br />
+                <span className="text-blue-600 font-bold italic">The more detail you provide, the deeper the insights we can generate for your roadmap.</span>
+              </p>
           </div>
           
           <div className="space-y-6">
@@ -269,7 +272,7 @@ const SurveyFlow = () => {
                 {/* Optional Further Information */}
                 <div>
                   <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4 pl-4">
-                    Additional Context (Optional)
+                    Additional Context (Optional) — <span className="text-blue-600 italic">More detail leads to greater insights</span>
                   </label>
                   <AutoTextArea 
                     value={answers[q.id]?.notes || ''}
