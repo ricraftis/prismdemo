@@ -9,12 +9,14 @@ import {
   ShieldCheck,
   Send,
   MessageSquare,
+  Calendar,
+  ChevronRight,
   Menu,
   X
 } from 'lucide-react';
 import Navigation from '../components/Navigation';
 
-const Contact = ({ onBack, onHome }) => {
+const Contact = ({ onBack, onHome, onBooking }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -225,6 +227,30 @@ const Contact = ({ onBack, onHome }) => {
 
             {/* Contact Details */}
             <div className="lg:col-span-5 space-y-12 pt-10 lg:pt-20">
+               {/* Appointment Block */}
+               <div className="bg-blue-950 p-10 rounded-[3rem] text-white shadow-2xl relative overflow-hidden group">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-blue-500/20 blur-3xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-1000" />
+                  <div className="relative z-10 space-y-8">
+                     <div className="flex items-center space-x-4">
+                        <div className="p-3 bg-blue-900/50 rounded-xl text-[#00c1cf]">
+                           <Calendar size={24} />
+                        </div>
+                        <span className="text-[10px] font-black uppercase tracking-[0.3em] text-blue-300">Strategy Session</span>
+                     </div>
+                     <h2 className="text-3xl font-['Outfit'] font-black">Make an Appointment</h2>
+                     <p className="text-blue-100/70 font-medium leading-relaxed">
+                        An appointment is the best way to communicate, build a professional relationship, and dive deep into your business's strategic potential.
+                     </p>
+                     <button 
+                        onClick={onBooking}
+                        className="w-full py-5 bg-[#00c1cf] text-white rounded-2xl font-black text-sm uppercase tracking-widest hover:bg-[#00a8b5] transition-all shadow-xl active:scale-95 flex items-center justify-center group"
+                     >
+                        <span>Schedule Your Time</span>
+                        <ChevronRight size={18} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                     </button>
+                  </div>
+               </div>
+
                <div>
                   <h2 className="text-4xl font-['Outfit'] font-black text-blue-950 mb-8">Contact Us</h2>
                   <div className="space-y-10">

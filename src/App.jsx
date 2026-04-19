@@ -21,12 +21,13 @@ import Bookkeeping from './pages/services/Bookkeeping';
 import Payroll from './pages/services/Payroll';
 import BAS from './pages/services/BAS';
 import Contact from './pages/Contact';
+import Booking from './pages/Booking';
 import Navigation from './components/Navigation';
 import SurveyFlow from './components/Survey/SurveyFlow';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentView, setCurrentView] = useState('home'); // 'home', 'fractional-cfo', 'business-consulting', 'foundational-integrity', 'bookkeeping', 'payroll', 'bas', 'contact'
+  const [currentView, setCurrentView] = useState('home'); // 'home', 'fractional-cfo', 'business-consulting', 'foundational-integrity', 'bookkeeping', 'payroll', 'bas', 'contact', 'booking'
   const [isDiagnosticStarted, setIsDiagnosticStarted] = useState(false);
 
   // Smooth scroll helper
@@ -120,6 +121,17 @@ const App = () => {
       <Contact 
         onBack={() => setCurrentView('home')} 
         onHome={() => setCurrentView('home')}
+        onBooking={() => setCurrentView('booking')}
+      />
+    );
+  }
+
+  if (currentView === 'booking') {
+    return (
+      <Booking 
+        onBack={() => setCurrentView('contact')} 
+        onHome={() => setCurrentView('home')}
+        onConsultation={() => setCurrentView('contact')}
       />
     );
   }
