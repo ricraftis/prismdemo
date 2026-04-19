@@ -76,7 +76,7 @@ const HealthCheckLanding = ({ onHome, onConsultation }) => {
             <div className="inline-block px-4 py-1.5 bg-[#00c1cf]/10 border border-[#00c1cf]/20 rounded-full text-[10px] font-black uppercase tracking-[0.4em] text-[#00c1cf] mb-12">
                 Regional Strategy Dashboard
             </div>
-            <h1 className="text-6xl lg:text-[110px] font-black tracking-tighter leading-[0.85] mb-16 font-display">
+            <h1 className="text-6xl lg:text-[110px] font-black tracking-tighter leading-[1.2] mb-16 font-display">
                 The Founder's Ceiling:<br />
                 <span className="spectrum-gradient">Why 90% of SMEs Stagnate.</span>
             </h1>
@@ -99,7 +99,7 @@ const HealthCheckLanding = ({ onHome, onConsultation }) => {
       <section className="py-40 bg-white">
          <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-32 items-center">
             <div className="space-y-12">
-               <h2 className="text-5xl lg:text-7xl font-black text-blue-950 font-display leading-[0.9] tracking-tighter">
+               <h2 className="text-5xl lg:text-7xl font-black text-blue-950 font-display leading-[1.2] tracking-tighter">
                   Are you <span className="text-blue-600">Guessing?</span>
                </h2>
                <div className="space-y-10 text-xl text-slate-500 font-medium leading-relaxed">
@@ -135,7 +135,7 @@ const HealthCheckLanding = ({ onHome, onConsultation }) => {
             <div className="lg:grid lg:grid-cols-2 gap-32 items-center">
                <div>
                   <div className="inline-block px-4 py-1.5 bg-blue-950 text-white rounded-full text-[10px] font-black uppercase tracking-widest mb-10">The Antidote</div>
-                  <h2 className="text-5xl lg:text-[80px] font-black text-blue-950 font-display leading-[0.9] tracking-tighter mb-12">
+                  <h2 className="text-5xl lg:text-[80px] font-black text-blue-950 font-display leading-[1.2] tracking-tighter mb-12">
                     7 Minutes to <span className="text-[#00c1cf]">Total Clarity.</span>
                   </h2>
                   <p className="text-xl text-slate-500 font-medium mb-12 leading-relaxed">
@@ -175,7 +175,7 @@ const HealthCheckLanding = ({ onHome, onConsultation }) => {
       <section className="py-52 bg-blue-950 text-white text-center relative overflow-hidden">
          <div className="absolute inset-0 bg-gradient-to-br from-blue-600/30 to-transparent" />
          <div className="max-w-4xl mx-auto px-6 relative z-10">
-            <h2 className="text-6xl lg:text-9xl font-black mb-16 font-display leading-[0.85] tracking-tighter">
+            <h2 className="text-6xl lg:text-9xl font-black mb-16 font-display leading-[1.2] tracking-tighter">
                 Scale with <span className="text-[#00c1cf]">Confidence.</span>
             </h2>
             <button 

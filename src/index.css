@@ -19,6 +19,10 @@ body {
   color: #0f172a;
 }
 
+h1, h2 {
+  line-height: 1.2;
+}
+
 /* Custom noise texture */
 .noise-overlay {
   position: fixed;
