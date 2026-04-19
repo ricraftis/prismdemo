@@ -8,6 +8,7 @@ import {
   PieChart,
   Target,
   FileSearch,
+  ShieldCheck,
   Menu,
   X
 } from 'lucide-react';
