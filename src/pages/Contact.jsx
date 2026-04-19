@@ -119,7 +119,7 @@ const Contact = ({ onBack, onHome }) => {
                 <div className="absolute inset-0 bg-gradient-to-t from-blue-950/40 to-transparent" />
                 <div className="absolute bottom-10 left-10 p-8 bg-white/10 backdrop-blur-md rounded-2xl border border-white/20 text-white space-y-1">
                    <p className="text-2xl font-black font-['Outfit']">Rebecca Hearn</p>
-                   <p className="text-xs font-bold uppercase tracking-widest opacity-80 italic italic">Director & Strategic Partner</p>
+                   <p className="text-xs font-bold uppercase tracking-widest opacity-80 italic">Director & Strategic Partner</p>
                 </div>
               </div>
             </div>

@@ -215,7 +215,7 @@ const App = () => {
                     <div className="flex items-center space-x-4">
                       <div className="p-2.5 bg-blue-950 text-white rounded-xl shadow-lg"><TrendingUp size={18} /></div>
                       <div>
-                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Optimization status</p>
+                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Optimisation status</p>
                         <p className="text-sm font-black text-blue-950">Scale-Ready Core</p>
                       </div>
                     </div>
@@ -417,7 +417,7 @@ const App = () => {
                   <div className="grid grid-cols-2 gap-6">
                     <div className="bg-slate-50 p-10 rounded-[2.5rem] flex flex-col justify-between border border-slate-100 group-hover:bg-blue-50 transition-colors">
                       <BarChart3 className="text-blue-900 mb-8" size={32} />
-                      <p className="text-xl font-black text-blue-950 font-display">Profit<br />Optimization</p>
+                      <p className="text-xl font-black text-blue-950 font-display">Profit<br />Optimisation</p>
                     </div>
                     <div className="bg-slate-50 p-10 rounded-[2.5rem] flex flex-col justify-between border border-slate-100 group-hover:bg-indigo-50 transition-colors">
                       <LineChart className="text-blue-900 mb-8" size={32} />

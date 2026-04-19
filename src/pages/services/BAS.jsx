@@ -34,7 +34,7 @@ const BAS = ({ onBack, onConsultation, onHome }) => {
     },
     {
       title: "Strategic Concessions",
-      desc: "We pinpoint every available deduction and concession, optimizing your tax position while maintaining strict compliance.",
+      desc: "We pinpoint every available deduction and concession, optimising your tax position while maintaining strict compliance.",
       icon: <Zap size={28} />
     },
     {

@@ -152,7 +152,7 @@ const BusinessConsulting = ({ onBack, onConsultation, onDiagnostic, onHome }) =>
                 },
                 { 
                   title: "Operational Efficiency", 
-                  desc: "Redesigning workflows and digital systems to maximize output while minimizing owner involvement.",
+                  desc: "Redesigning workflows and digital systems to maximise output while minimising owner involvement.",
                   icon: <Zap className="text-[#00c1cf]" size={32} />
                 },
                 { 

@@ -190,7 +190,7 @@ const FoundationalIntegrity = ({ onBack, onNavigateService, onConsultation, onDi
               <div className="space-y-6 pt-4">
                  {[
                    { title: "Personalised Support", desc: "Expect clear communication and a partnership approach." },
-                   { title: "ATO Compliance", desc: "Expert preparaton that identifies concessions and deductions." },
+                   { title: "ATO Compliance", desc: "Expert preparation that identifies concessions and deductions." },
                    { title: "State-of-the-art Systems", desc: "Leveraging Australia's leading accounting platforms." }
                  ].map((item, i) => (
                    <div key={i} className="flex items-start space-x-4">
