@@ -87,7 +87,7 @@ const FractionalCFO = ({ onBack, onConsultation, onDiagnostic, onHome }) => {
              <div className="space-y-4">
                 <h2 className="text-sm font-black text-blue-950 uppercase tracking-[0.4em]">Service Definition</h2>
                 <p className="text-2xl lg:text-3xl font-medium text-slate-700 leading-relaxed italic">
-                  A <span className="text-blue-950 font-black">Fractional CFO</span> provides high-level financial strategy, oversight, and advisory services on a part-time basis—giving your business executive-level expertise to drive growth and profit without the cost of a full-time hire.
+                  A <span className="text-blue-950 font-black">Fractional CFO</span> provides high-level financial strategy, oversight, and advisory services on a part-time basis, giving your business executive-level expertise to drive growth and profit without the cost of a full-time hire.
                 </p>
              </div>
           </div>
