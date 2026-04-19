@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   ChevronRight, 
   BarChart3, 
@@ -11,8 +11,7 @@ import {
   ShieldCheck,
   Clock,
   Menu,
-  X,
-  ClipboardCheck
+  X
 } from 'lucide-react';
 import FractionalCFO from './pages/FractionalCFO';
 import BusinessConsulting from './pages/BusinessConsulting';

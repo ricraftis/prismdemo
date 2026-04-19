@@ -9,7 +9,6 @@ import {
   ChevronRight,
   Zap,
   Target,
-  FileSearch,
   Users,
   ArrowLeft,
   FileDown
