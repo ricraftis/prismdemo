@@ -14,6 +14,7 @@ import {
   FileDown
 } from 'lucide-react';
 import SurveyFlow from '../components/Survey/SurveyFlow';
+import PartnerLogos from '../components/PartnerLogos';
 
 const HealthCheckLanding = ({ onHome, onConsultation }) => {
   const [showSurvey, setShowSurvey] = useState(false);
@@ -189,9 +190,11 @@ const HealthCheckLanding = ({ onHome, onConsultation }) => {
          </div>
       </section>
 
-      {/* Minimalist Footer */}
+      {/* Focused Footer */}
       <footer className="py-24 bg-white border-t border-slate-50">
-         <div className="max-w-4xl mx-auto px-6 text-center space-y-12">
+         <div className="max-w-4xl mx-auto px-6 text-center space-y-16">
+            <PartnerLogos />
+            
             <div className="flex items-center justify-center space-x-4 opacity-40 grayscale hover:grayscale-0 transition-all">
                 <img src="/Prism Business Intiatives - 300px.jpg" alt="Prism" className="h-10 w-auto object-contain" />
                 <div className="flex flex-col text-left">

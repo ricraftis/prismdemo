@@ -13,6 +13,7 @@ import {
   X
 } from 'lucide-react';
 import Navigation from '../components/Navigation';
+import PartnerLogos from '../components/PartnerLogos';
 
 const FoundationalIntegrity = ({ onBack, onNavigateService, onConsultation, onDiagnostic, onHome }) => {
   useEffect(() => {
@@ -153,13 +154,8 @@ const FoundationalIntegrity = ({ onBack, onNavigateService, onConsultation, onDi
           </div>
 
           {/* Partner Logos */}
-          <div className="mt-24 pt-20 border-t border-gray-100">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-12 items-center justify-items-center opacity-90 hover:opacity-100 transition-opacity">
-               <img src="/CPA.png" alt="CPA Australia" className="h-12 md:h-16 w-auto object-contain hover:scale-110 transition-all" />
-               <img src="/registeredBASagent.png" alt="Registered BAS Agent" className="h-12 md:h-16 w-auto object-contain hover:scale-110 transition-all" />
-               <img src="/xero-advisor-certified-individual-badge.avif" alt="Xero Advisor" className="h-16 md:h-20 w-auto object-contain hover:scale-110 transition-all" />
-               <img src="/Partner-Program-logo-Purple-horizontal-300x91.avif" alt="Partner Program" className="h-10 md:h-14 w-auto object-contain hover:scale-110 transition-all" />
-            </div>
+          <div className="mt-24">
+            <PartnerLogos />
           </div>
         </div>
       </section>

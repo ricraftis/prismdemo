@@ -24,6 +24,7 @@ import Booking from './pages/Booking';
 import Navigation from './components/Navigation';
 import SurveyFlow from './components/Survey/SurveyFlow';
 import HealthCheckLanding from './pages/HealthCheckLanding';
+import PartnerLogos from './components/PartnerLogos';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -610,6 +611,7 @@ const App = () => {
       {/* Footer Links */}
       <footer className="bg-black py-20 text-slate-500 relative">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PartnerLogos className="mb-20 bg-white/5 backdrop-blur-sm border-white/5" />
           <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
             <div className="mb-12 md:mb-0">
               <div className="flex items-center space-x-4 mb-6 cursor-pointer group" onClick={() => setCurrentView('home')}>
