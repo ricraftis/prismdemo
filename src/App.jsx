@@ -28,17 +28,15 @@ import HealthCheckLanding from './pages/HealthCheckLanding';
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [currentView, setCurrentView] = useState('home'); // 'home', 'fractional-cfo', 'business-consulting', 'foundational-integrity', 'bookkeeping', 'payroll', 'bas', 'contact', 'booking', 'landing'
-  const [isDiagnosticStarted, setIsDiagnosticStarted] = useState(false);
-
-  // Handle URL entry points for standalone pages
-  useEffect(() => {
+  const [currentView, setCurrentView] = useState(() => {
     const params = new URLSearchParams(window.location.search);
     const view = params.get('view');
     if (view && ['landing', 'booking', 'contact'].includes(view)) {
-      setCurrentView(view);
+      return view;
     }
-  }, []);
+    return 'home';
+  });
+  const [isDiagnosticStarted, setIsDiagnosticStarted] = useState(false);
 
   // Smooth scroll helper
   const scrollTo = (id, startDiagnostic = false) => {
