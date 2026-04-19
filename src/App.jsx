@@ -31,6 +31,15 @@ const App = () => {
   const [currentView, setCurrentView] = useState('home'); // 'home', 'fractional-cfo', 'business-consulting', 'foundational-integrity', 'bookkeeping', 'payroll', 'bas', 'contact', 'booking', 'landing'
   const [isDiagnosticStarted, setIsDiagnosticStarted] = useState(false);
 
+  // Handle URL entry points for standalone pages
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const view = params.get('view');
+    if (view && ['landing', 'booking', 'contact'].includes(view)) {
+      setCurrentView(view);
+    }
+  }, []);
+
   // Smooth scroll helper
   const scrollTo = (id, startDiagnostic = false) => {
     const element = document.getElementById(id);
