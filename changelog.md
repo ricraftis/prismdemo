@@ -2,6 +2,11 @@
 
 All notable changes to this project will be documented in this file.
  
+## [1.3.9] - 2026-04-21
+
+### Added
+- **AI Report Generation:** Created a new Vercel serverless function (`/api/generate-report/route.ts`) to handle the Prism Financial Health Check report generation using the `gemini-2.5-flash` model and the Prism Master Prompt logic.
+
 ## [1.3.8] - 2026-03-28
 
 ### Changed
