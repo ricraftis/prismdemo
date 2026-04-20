@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ArrowRight, CheckCircle, ChevronLeft } from 'lucide-react';
 import { businessTypes, branchedQuestions } from '../../data/surveyData';
 import AutoTextArea from './AutoTextArea';
+import ReactMarkdown from 'react-markdown';
 
 const SurveyFlow = () => {
   const [step, setStep] = useState(1);
@@ -10,6 +11,7 @@ const SurveyFlow = () => {
   const [answers, setAnswers] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isComplete, setIsComplete] = useState(false);
+  const [reportContent, setReportContent] = useState('');
 
   // Derived questions based on selected business type
   const activeQuestions = businessType ? branchedQuestions[businessType] : [];
@@ -27,24 +29,44 @@ const SurveyFlow = () => {
   const handleSubmit = async () => {
     setIsSubmitting(true);
     try {
-      const response = await fetch('/api/subscribe', {
+      const pathValue = businessTypes.find(b => b.id === businessType).label;
+      const formattedAnswers = activeQuestions.map(q => ({
+        choice: answers[q.id]?.option || 'No answer provided',
+        comment: answers[q.id]?.notes || ''
+      }));
+
+      // Call the AI report generator endpoint
+      const response = await fetch('/api/generate-report/route', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          path: pathValue,
+          answers: formattedAnswers
+        }),
+      });
+
+      if (!response.ok) throw new Error('Failed to generate report');
+      
+      const data = await response.json();
+      setReportContent(data.report);
+
+      // Attempt to send subscription email in background
+      fetch('/api/subscribe', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
           email: contactInfo.email,
           name: contactInfo.name,
-          businessType: businessTypes.find(b => b.id === businessType).label,
+          businessType: pathValue,
           surveyResponses: activeQuestions.map(q => ({
             question: q.text,
             selectedOption: answers[q.id]?.option || 'No answer provided',
             furtherInfo: answers[q.id]?.notes || ''
           }))
         }),
-      });
-
-      if (!response.ok) throw new Error('Failed to send report');
+      }).catch(err => console.error('Subscription error:', err));
 
       setIsSubmitting(false);
       setIsComplete(true);
@@ -54,6 +76,7 @@ const SurveyFlow = () => {
       setTimeout(() => {
         setIsSubmitting(false);
         setIsComplete(true);
+        setReportContent("## Report Generation Failed\n\nThere was an issue generating your report via the API. Please ensure the API keys are configured correctly or try again later.");
       }, 1500);
     }
   };
@@ -81,7 +104,7 @@ const SurveyFlow = () => {
           </div>
         </div>
 
-        {/* AI Synthesis Section - Simulation of Gemini 2.5 Flash */}
+        {/* AI Synthesis Section - Powered by Gemini 2.5 Flash */}
         <div className="p-12 bg-blue-950 text-white rounded-[3rem] shadow-2xl relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent pointer-events-none" />
           <div className="relative z-10">
@@ -89,32 +112,18 @@ const SurveyFlow = () => {
               <div className="w-8 h-8 bg-[#00c1cf] rounded-lg flex items-center justify-center animate-pulse">
                 <div className="w-4 h-4 bg-white rounded-full bg-opacity-30" />
               </div>
-              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#00c1cf]">AI Synthesis: Gemini 2.5 Flash (Testing)</span>
+              <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#00c1cf]">AI Synthesis: Gemini 2.5 Flash</span>
             </div>
             
-            <div className="space-y-8">
-               <div className="p-8 bg-white/5 border border-white/10 rounded-2xl backdrop-blur-sm">
-                 <h3 className="text-2xl font-black mb-6 font-display text-[#00c1cf]">Strategic Observation</h3>
-                 <p className="text-lg text-blue-100/80 leading-relaxed font-medium">
-                   Based on your profile as a <span className="text-white font-black">{businessTypes.find(b => b.id === businessType).label}</span>, your primary leverage point is currently <span className="text-[#00c1cf] font-black italic">operational standardisation.</span> 
-                   The data suggests that while your vision is clear, the current {reportData[0].selected.toLowerCase()} bottleneck is creating a friction point that prevents sustainable scaling.
-                 </p>
-               </div>
+            <div className="space-y-6 prose prose-invert prose-p:text-blue-100/80 prose-headings:text-[#00c1cf] max-w-none">
+              <ReactMarkdown>
+                {reportContent}
+              </ReactMarkdown>
+            </div>
 
-               <div className="grid md:grid-cols-2 gap-6">
-                 <div className="space-y-4">
-                   <h4 className="text-xs font-black uppercase tracking-widest text-blue-300">Targeted Priority</h4>
-                   <p className="text-sm text-blue-100/60 leading-relaxed">
-                     Focus on decoupling the founder's time from daily task execution. Your responses indicate a strong foundation that is ready for digital transformation.
-                   </p>
-                 </div>
-                 <div className="space-y-4">
-                   <h4 className="text-xs font-black uppercase tracking-widest text-blue-300">Risk Mitigation</h4>
-                   <p className="text-sm text-blue-100/60 leading-relaxed">
-                     Address the {reportData[1]?.selected.toLowerCase() || 'mixed'} financial separation to ensure 100% decision-ready accuracy for future capital requirements.
-                   </p>
-                 </div>
-               </div>
+            <div className="mt-12 p-6 bg-yellow-500/10 border border-yellow-500/20 rounded-2xl text-yellow-200/80 text-sm">
+              <p className="font-bold mb-1">Disclaimer</p>
+              <p>This report is generated by AI for informational purposes only and is not to be construed as financial, legal, or strategic business advice. Always seek professional advice before proceeding with any significant business decisions.</p>
             </div>
           </div>
         </div>
