@@ -36,7 +36,7 @@ const SurveyFlow = () => {
       }));
 
       // Call the AI report generator endpoint
-      const response = await fetch('/api/generate-report/route', {
+      const response = await fetch('/api/generate-report', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

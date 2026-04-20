@@ -1,12 +1,16 @@
 import { google } from '@ai-sdk/google';
 import { generateText } from 'ai';
 
-// Initialize the model with Gemini 2.5 Flash
-const model = google('gemini-2.5-flash');
+export default async function handler(req, res) {
+  if (req.method !== 'POST') {
+    return res.status(405).json({ error: 'Method Not Allowed' });
+  }
 
-export async function POST(req: Request) {
   try {
-    const { path, answers } = await req.json();
+    const { path, answers } = req.body;
+
+    // Use Gemini 2.5 Flash as requested by the user
+    const model = google('gemini-2.5-flash');
 
     const systemPrompt = `
       Role: You are an elite Senior Business Strategist and B2B Copywriter for Prism Business Initiatives.
@@ -48,15 +52,9 @@ export async function POST(req: Request) {
       maxTokens: 2500,
     });
 
-    return new Response(JSON.stringify({ report: text }), { 
-      status: 200, 
-      headers: { 'Content-Type': 'application/json' } 
-    });
+    return res.status(200).json({ report: text });
   } catch (error) {
     console.error("Error generating report:", error);
-    return new Response(JSON.stringify({ error: "Failed to generate report. Please try again." }), { 
-      status: 500,
-      headers: { 'Content-Type': 'application/json' }
-    });
+    return res.status(500).json({ error: "Failed to generate report. Please try again." });
   }
 }
