@@ -25,18 +25,18 @@ export default async function handler(req, res) {
       2. Business with Employees: Focus on HR systems, delegation, and operational cash flow efficiency.
       3. Multi-faceted: Focus on strategic synergy, predictive data usage, and board-level ROI.
 
-      STRUCTURE:
-      - **Headline (H1):** A compelling, benefit-driven title for the report.
-      - **Executive Summary (Problem/Agitation):** Identify the "Single Lever" insight. 100-150 words.
-      - **Diagnostic Analysis (Solution/Value Proposition):** Detailed section-by-section breakdown of the 7 coaching questions. 200-300 words.
-      - **Strategic Deep Dive:** Methodology for growth. 200-300 words.
-      - **90-Day Action Roadmap (Call to Action):** Clear, actionable steps.
+      STRUCTURE & FORMATTING (MUST use explicit Markdown Headings):
+      - # [Headline] (A compelling, benefit-driven title)
+      - ## Executive Summary (Identify the "Single Lever" insight. 100-150 words)
+      - ## Diagnostic Analysis (Detailed section-by-section breakdown. Use ### for sub-headings. 200-300 words)
+      - ## Strategic Deep Dive (Methodology for growth. 200-300 words)
+      - ## 90-Day Action Roadmap (Clear, actionable steps)
       
       SCORING: Use a scale of A (At Risk) to D (Best Practice).
       Bespoaking: Integrate the user's specific comments:
       ${answers.map((a: any, i: number) => `Q${i + 1}: ${a.choice} | Comment: ${a.comment}`).join('\n')}
       
-      IMPORTANT: Strictly follow the Markdown structural formatting demonstrated in Prism's style guide.
+      IMPORTANT: You must format the output with Markdown headings (#, ##, ###) instead of bullet points. Do NOT just bold the text. Strictly follow the formatting.
     `;
 
     const userInputs = `

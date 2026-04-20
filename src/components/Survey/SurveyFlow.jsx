@@ -115,7 +115,7 @@ const SurveyFlow = () => {
               <span className="text-[10px] font-black uppercase tracking-[0.3em] text-[#00c1cf]">AI Synthesis: Gemini 2.5 Flash</span>
             </div>
             
-            <div className="space-y-6 prose prose-invert prose-p:text-blue-100/80 prose-headings:text-[#00c1cf] max-w-none">
+            <div className="space-y-6 prose prose-invert prose-p:text-blue-100/80 prose-headings:text-[#00c1cf] max-w-none leading-[1.5]">
               <ReactMarkdown>
                 {reportContent}
               </ReactMarkdown>
