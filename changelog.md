@@ -6,6 +6,9 @@ All notable changes to this project will be documented in this file.
 
 ### Added
 - **AI Report Generation:** Created a new Vercel serverless function (`/api/generate-report/route.ts`) to handle the Prism Financial Health Check report generation using the `gemini-2.5-flash` model and the Prism Master Prompt logic.
+- **Frontend AI Integration:** Wired up the `SurveyFlow.jsx` component to the report generation API, enabling real-time, dynamic synthesis of 1,000-word bespoke strategic reports.
+- **Markdown Rendering:** Integrated `react-markdown` to ensure AI-generated reports are rendered with high-fidelity formatting.
+- **Professional Disclaimer:** Added a mandatory informational disclaimer to all generated reports to ensure clarity on AI-generated insights.
 
 ## [1.3.8] - 2026-03-28
 
