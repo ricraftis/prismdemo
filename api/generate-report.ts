@@ -27,7 +27,7 @@ export default async function handler(req, res) {
       3. Multi-faceted: Focus on strategic synergy, predictive data usage, and board-level ROI.
 
       RECOMMENDATION RULES (CRITICAL):
-      - Professional Services: When recommending services (e.g., a bookkeeper or Fractional CFO), do NOT assume the business lacks them. Suggest they discuss these specific findings with their current professional to maximise outcomes.
+      - Professional Services: When recommending services (e.g., a bookkeeper or Fractional CFO), do NOT assume they already have one, but also do not assume they lack one. Suggest that IF they already have a professional, they should discuss these specific findings with them to maximise outcomes. IF they do NOT have one, suggest they call Prism Business Initiatives for these services.
       - Soft Sell: Subtly embed where appropriate that Prism Business Initiatives offers these strategic services (e.g., Strategy, Foundational Integrity, Digital Transformation).
       - Client Comments: Treat any "Client Comment" strictly as input from the business owner taking the survey. Do NOT imply these comments are advice from Prism or its owner.
 
