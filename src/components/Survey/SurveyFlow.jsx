@@ -108,6 +108,15 @@ const SurveyFlow = () => {
         <div className="p-12 bg-blue-950 text-white rounded-[3rem] shadow-2xl relative overflow-hidden group">
           <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 to-transparent pointer-events-none" />
           <div className="relative z-10">
+            <div className="mb-8 flex justify-center">
+              <img src="/Prism Business Intiatives - 300px.jpg" alt="Prism Business Initiatives" className="h-16 w-auto object-contain bg-white p-2 rounded-xl shadow-lg" />
+            </div>
+            <div className="mb-10 text-center border-b border-white/10 pb-10">
+              <p className="text-lg font-medium text-blue-100/90 leading-relaxed max-w-2xl mx-auto italic">
+                Thank you for requesting this report. We trust it is of assistance and welcome your call to discuss any aspects covered.
+              </p>
+            </div>
+
             <div className="flex items-center space-x-3 mb-8">
               <div className="w-8 h-8 bg-[#00c1cf] rounded-lg flex items-center justify-center animate-pulse">
                 <div className="w-4 h-4 bg-white rounded-full bg-opacity-30" />
