@@ -6,7 +6,7 @@ export const businessTypes = [
 
 export const branchedQuestions = {
   family: [
-    { id: 'f1', text: 'What is the primary bottleneck preventing your business from growing?', options: ['Capital/Funding', 'Time/Bandwidth', 'Market Knowledge', 'Finding Good Help'] },
+    { id: 'f1', text: 'What is the primary bottleneck preventing your business from growing?', options: ['Financial Resources', 'Time Availability', 'Market Knowledge', 'Finding Good Help'] },
     { id: 'f2', text: 'How do you handle the separation of personal and business finances?', options: ['Strictly separated', 'Somewhat mixed', 'Highly mingled'] },
     { id: 'f3', text: 'What does your current succession or exit plan look like?', options: ['Clear, documented plan', 'Vague ideas/Not formalised', 'No plan yet'] },
     { id: 'f4', text: 'How would you describe your current work-life balance?', options: ['Excellent', 'Manageable but demanding', 'High risk of burnout'] },
