@@ -24,8 +24,10 @@ import Booking from './pages/Booking';
 import Navigation from './components/Navigation';
 import SurveyFlow from './components/Survey/SurveyFlow';
 import HealthCheckLanding from './pages/HealthCheckLanding';
+import Testimonials from './pages/Testimonials';
 import PartnerLogos from './components/PartnerLogos';
 import PrismVisualizer from './components/PrismVisualizer';
+import TestimonialBoxes from './components/TestimonialBoxes';
 
 
 const App = () => {
@@ -59,6 +61,7 @@ const App = () => {
         onBack={() => setCurrentView('home')} 
         onHome={() => setCurrentView('home')}
         onConsultation={() => setCurrentView('contact')}
+        onTestimonials={() => setCurrentView('testimonials')}
         onDiagnostic={() => {
           setCurrentView('home');
           setTimeout(() => scrollTo('diagnostic'), 300);
@@ -149,6 +152,16 @@ const App = () => {
   if (currentView === 'landing') {
     return (
       <HealthCheckLanding 
+        onHome={() => setCurrentView('home')}
+        onConsultation={() => setCurrentView('contact')}
+      />
+    );
+  }
+
+  if (currentView === 'testimonials') {
+    return (
+      <Testimonials
+        onBack={() => setCurrentView('home')}
         onHome={() => setCurrentView('home')}
         onConsultation={() => setCurrentView('contact')}
       />
@@ -548,6 +561,8 @@ const App = () => {
         </div>
       </section>
 
+      <TestimonialBoxes onViewTestimonials={() => setCurrentView('testimonials')} />
+
       {/* Dual CTA - High contrast final section */}
       <section className="py-32 bg-blue-950 text-white relative">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
@@ -607,6 +622,12 @@ const App = () => {
                 className="hover:text-white transition-colors text-left"
               >
                 Contact Us
+              </button>
+              <button 
+                onClick={() => setCurrentView('testimonials')} 
+                className="hover:text-white transition-colors text-left"
+              >
+                Testimonials
               </button>
               <span className="text-slate-700">© 2026</span>
             </div>

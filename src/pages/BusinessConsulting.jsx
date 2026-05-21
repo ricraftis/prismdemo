@@ -4,7 +4,6 @@ import {
   CheckCircle2, 
   PlayCircle, 
   BarChart3, 
-  Users, 
   Zap,
   ArrowRight,
   TrendingUp,
@@ -215,24 +214,6 @@ const BusinessConsulting = ({ onBack, onConsultation, onDiagnostic, onHome }) =>
                 <p className="text-gray-600 leading-relaxed font-medium">{step.desc}</p>
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Social Proof */}
-      <section className="py-24 bg-white border-y border-gray-100">
-        <div className="max-w-4xl mx-auto px-6 text-center italic text-gray-600">
-          <p className="text-2xl leading-relaxed mb-8 font-medium">
-            "Prism's consulting shifted our focus from simply surviving the next quarter to aggressively planning our next three years. The ROI on our strategic planning session was visible within months."
-          </p>
-          <div className="flex items-center justify-center space-x-4 not-italic">
-            <div className="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-[#00c1cf]">
-              <Users size={20} />
-            </div>
-            <div className="text-left">
-              <p className="font-black uppercase tracking-widest text-sm text-[#202020]">General Manager</p>
-              <p className="text-xs font-bold text-[#00c1cf] uppercase tracking-widest leading-tight">Victorian Manufacturing Enterprise</p>
-            </div>
           </div>
         </div>
       </section>

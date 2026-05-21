@@ -142,14 +142,12 @@ const BAS = ({ onBack, onConsultation, onHome }) => {
                </div>
              </div>
              <div className="lg:w-1/2">
-                <div className="relative group">
-                   <div className="absolute inset-0 bg-blue-100 rounded-[3rem] rotate-3 group-hover:rotate-0 transition-transform duration-700" />
-                   <div className="relative bg-white p-10 rounded-[2.5rem] shadow-xl border border-slate-100 italic text-xl text-slate-700 leading-[1.6]">
-                     "The 90-day action plan gave our board the confidence to secure a high-value expansion loan. We couldn't have done it without Prism's expert BAS forecasting and governance."
-                     <footer className="mt-8 not-italic">
-                       <p className="text-sm font-black text-blue-950 uppercase tracking-widest">— Regional MD, Professional Services</p>
-                     </footer>
-                   </div>
+                <div className="relative rounded-[2.5rem] overflow-hidden shadow-2xl border-4 border-white">
+                  <img
+                    src="/PrismBAS_Systems.jpg"
+                    alt="BAS compliance and governance"
+                    className="w-full h-auto aspect-[4/3] object-cover"
+                  />
                 </div>
              </div>
           </div>

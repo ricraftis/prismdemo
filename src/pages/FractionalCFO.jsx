@@ -13,8 +13,9 @@ import {
   X
 } from 'lucide-react';
 import Navigation from '../components/Navigation';
+import TestimonialBoxes from '../components/TestimonialBoxes';
 
-const FractionalCFO = ({ onBack, onConsultation, onDiagnostic, onHome }) => {
+const FractionalCFO = ({ onBack, onConsultation, onDiagnostic, onHome, onTestimonials }) => {
   return (
     <div className="min-h-screen bg-white font-sans text-slate-900 selection:bg-blue-100 relative overflow-hidden">
       {/* Common Navigation */}
@@ -175,26 +176,7 @@ const FractionalCFO = ({ onBack, onConsultation, onDiagnostic, onHome }) => {
         </div>
       </section>
 
-      {/* Social Proof */}
-      <section className="py-24 bg-white font-medium">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-           <h2 className="text-2xl font-black text-slate-400 uppercase tracking-[0.3em] mb-16 text-center">What Our Clients Say</h2>
-           <div className="space-y-12">
-              <blockquote className="relative p-12 bg-slate-50 rounded-[3rem] italic text-xl text-slate-800 leading-relaxed border-l-8 border-blue-600">
-                "Prism helped us increase our net profit by 51% within twelve months of implementing their Strategic CFO framework. We finally have the clarity we need to expand."
-                <footer className="mt-8 not-italic">
-                   <span className="font-black text-blue-950">— [Illustrative Client Name], Regional Manufacturer</span>
-                </footer>
-              </blockquote>
-              <blockquote className="relative p-12 bg-slate-50 rounded-[3rem] italic text-xl text-slate-800 leading-relaxed border-l-8 border-indigo-600">
-                "The 90-day action plan gave our board the confidence to secure a $2M expansion loan. We couldn't have done it without Prism's expert forecasting."
-                <footer className="mt-8 not-italic">
-                   <span className="font-black text-blue-950">— [Illustrative Client Name], Professional Services</span>
-                </footer>
-              </blockquote>
-           </div>
-        </div>
-      </section>
+      <TestimonialBoxes onViewTestimonials={onTestimonials} />
 
       {/* Dual CTA */}
       <section className="py-32 bg-slate-50 text-center relative overflow-hidden font-medium">

@@ -1,7 +1,19 @@
 # Changelog
 
 All notable changes to this project will be documented in this file.
- 
+
+## [1.4.0] - 2026-05-22
+
+### Added
+- **Client Testimonials:** Introduced real client testimonials from Michael and Steven in `src/data/testimonials.js`, with preview boxes on the home and Fractional CFO pages linking to a dedicated Testimonials page.
+- **Testimonials Page:** Added `Testimonials.jsx` for full-length client quotes, plus footer navigation to reach it from anywhere on the site.
+
+### Changed
+- **Social Proof Cleanup:** Removed illustrative placeholder testimonials from Business Consulting, BAS, and Fractional CFO pages.
+
+### Removed
+- **Placeholder Quotes:** Retired all fictional client testimonials and illustrative attributions across service pages.
+
 ## [1.3.9] - 2026-04-21
 
 ### Added
