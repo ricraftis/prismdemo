@@ -6,7 +6,7 @@ import ReactMarkdown from 'react-markdown';
 
 const SurveyFlow = () => {
   const [step, setStep] = useState(1);
-  const [contactInfo, setContactInfo] = useState({ name: '', email: '' });
+  const [contactInfo, setContactInfo] = useState({ name: '', email: '', surname: '', phone: '' });
   const [businessType, setBusinessType] = useState('');
   const [answers, setAnswers] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -58,7 +58,8 @@ const SurveyFlow = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           email: contactInfo.email,
-          name: contactInfo.name,
+          name: `${contactInfo.name} ${contactInfo.surname}`.trim(),
+          phone: contactInfo.phone || '',
           businessType: pathValue,
           surveyResponses: activeQuestions.map(q => ({
             question: q.text,
@@ -99,7 +100,7 @@ const SurveyFlow = () => {
             <div className="inline-block px-4 py-1.5 bg-emerald-50 text-emerald-600 rounded-full text-[10px] font-black uppercase tracking-widest mb-6">Diagnostic Complete</div>
             <h2 className="text-4xl md:text-6xl font-black text-blue-950 mb-6 font-display leading-tight tracking-tighter">Your Strategic <span className="text-[#00c1cf]">Roadmap.</span></h2>
             <p className="text-xl text-slate-500 font-medium max-w-2xl mx-auto">
-              Analysed for <span className="text-blue-950 font-black">{contactInfo.name}</span>. This report synthesises your operational data into an actionable growth profile.
+              Analysed for <span className="text-blue-950 font-black">{`${contactInfo.name} ${contactInfo.surname}`.trim()}</span>. This report synthesises your operational data into an actionable growth profile.
             </p>
           </div>
         </div>
@@ -172,32 +173,57 @@ const SurveyFlow = () => {
         <div className="space-y-8 p-10 bg-white rounded-[3rem] shadow-2xl border border-slate-100">
           <div className="space-y-4">
               <h2 className="text-4xl font-black text-blue-950 font-display leading-tight tracking-tighter italic">"Precision starts with identity."</h2>
-              <p className="text-slate-500 font-medium leading-relaxed">
+              <p className="text-slate-700 font-semibold leading-relaxed">
                 Please provide your details so we can deliver your bespoke strategic analysis. <br />
-                <span className="text-blue-600 font-bold italic">The more detail you provide, the deeper the insights we can generate for your roadmap.</span>
+                <span className="text-blue-700 font-bold italic">The more detail you provide, the deeper the insights we can generate for your roadmap.</span>
               </p>
           </div>
           
           <div className="space-y-6">
-            <div className="group">
-              <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-3 pl-4">Full Name</label>
-              <input 
-                type="text" 
-                value={contactInfo.name}
-                onChange={(e) => setContactInfo({...contactInfo, name: e.target.value})}
-                className="w-full p-6 bg-slate-50 border border-slate-100 rounded-2xl focus:bg-white focus:ring-2 focus:ring-[#00c1cf] focus:border-[#00c1cf] transition-all outline-none font-medium text-slate-900"
-                placeholder="CEO / Managing Director"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="group">
+                <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-700 mb-3 pl-4">First Name</label>
+                <input 
+                  type="text" 
+                  value={contactInfo.name}
+                  onChange={(e) => setContactInfo({...contactInfo, name: e.target.value})}
+                  className="w-full p-6 bg-slate-50 border border-slate-200 rounded-2xl focus:bg-white focus:ring-2 focus:ring-[#00c1cf] focus:border-[#00c1cf] transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400"
+                  placeholder="John"
+                />
+              </div>
+              <div className="group">
+                <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-700 mb-3 pl-4">Surname (Optional)</label>
+                <input 
+                  type="text" 
+                  value={contactInfo.surname}
+                  onChange={(e) => setContactInfo({...contactInfo, surname: e.target.value})}
+                  className="w-full p-6 bg-slate-50 border border-slate-200 rounded-2xl focus:bg-white focus:ring-2 focus:ring-[#00c1cf] focus:border-[#00c1cf] transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400"
+                  placeholder="Smith"
+                />
+              </div>
             </div>
-            <div className="group">
-              <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-400 mb-3 pl-4">Email Address</label>
-              <input 
-                type="email" 
-                value={contactInfo.email}
-                onChange={(e) => setContactInfo({...contactInfo, email: e.target.value})}
-                className="w-full p-6 bg-slate-50 border border-slate-100 rounded-2xl focus:bg-white focus:ring-2 focus:ring-[#00c1cf] focus:border-[#00c1cf] transition-all outline-none font-medium text-slate-900"
-                placeholder="strategy@yourcompany.com"
-              />
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="group">
+                <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-700 mb-3 pl-4">Email Address</label>
+                <input 
+                  type="email" 
+                  value={contactInfo.email}
+                  onChange={(e) => setContactInfo({...contactInfo, email: e.target.value})}
+                  className="w-full p-6 bg-slate-50 border border-slate-200 rounded-2xl focus:bg-white focus:ring-2 focus:ring-[#00c1cf] focus:border-[#00c1cf] transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400"
+                  placeholder="strategy@yourcompany.com"
+                />
+              </div>
+              <div className="group">
+                <label className="block text-[10px] font-black uppercase tracking-[0.2em] text-slate-700 mb-3 pl-4">Phone Number (Optional)</label>
+                <input 
+                  type="tel" 
+                  value={contactInfo.phone}
+                  onChange={(e) => setContactInfo({...contactInfo, phone: e.target.value})}
+                  className="w-full p-6 bg-slate-50 border border-slate-200 rounded-2xl focus:bg-white focus:ring-2 focus:ring-[#00c1cf] focus:border-[#00c1cf] transition-all outline-none font-medium text-slate-900 placeholder:text-slate-400"
+                  placeholder="e.g., 0412 345 678"
+                />
+              </div>
             </div>
           </div>
 
@@ -220,7 +246,7 @@ const SurveyFlow = () => {
           
           <div className="space-y-4">
               <h2 className="text-4xl font-black text-blue-950 font-display leading-[0.95] tracking-tighter">Your Operational Reality.</h2>
-              <p className="text-slate-500 font-medium leading-relaxed">How would you describe the current structure of your business?</p>
+              <p className="text-slate-700 font-semibold leading-relaxed">How would you describe the current structure of your business?</p>
           </div>
           
           <div className="grid gap-4">
@@ -231,7 +257,7 @@ const SurveyFlow = () => {
                 className={`w-full text-left p-8 rounded-2xl border-2 transition-all duration-300 transform ${
                   businessType === type.id 
                     ? 'border-[#00c1cf] bg-white shadow-xl scale-[1.02]' 
-                    : 'border-slate-50 bg-slate-50/50 hover:border-blue-100 hover:bg-white text-slate-400'
+                    : 'border-slate-200 bg-slate-50/50 hover:border-blue-300 hover:bg-white text-slate-700'
                 }`}
               >
                 <span className={`text-xl font-black font-display tracking-tight ${businessType === type.id ? 'text-blue-950' : ''}`}>{type.label}</span>
@@ -277,7 +303,7 @@ const SurveyFlow = () => {
                     <label key={opt} className={`flex items-center p-6 rounded-2xl border-2 cursor-pointer transition-all duration-300 ${
                         answers[q.id]?.option === opt 
                         ? 'border-[#00c1cf] bg-white shadow-lg' 
-                        : 'border-slate-50 bg-slate-50/30 hover:bg-slate-50'
+                        : 'border-slate-200 bg-slate-50/30 hover:bg-slate-50'
                     }`}>
                       <input 
                         type="radio" 
@@ -292,15 +318,15 @@ const SurveyFlow = () => {
                       }`}>
                           {answers[q.id]?.option === opt && <div className="w-2 h-2 bg-white rounded-full" />}
                       </div>
-                      <span className={`font-bold transition-colors ${answers[q.id]?.option === opt ? 'text-blue-950' : 'text-slate-500'}`}>{opt}</span>
+                      <span className={`font-bold transition-colors ${answers[q.id]?.option === opt ? 'text-blue-950' : 'text-slate-700'}`}>{opt}</span>
                     </label>
                   ))}
                 </div>
 
                 {/* Optional Further Information */}
                 <div>
-                  <label className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-4 pl-4">
-                    Additional Context (Optional) — <span className="text-blue-600 italic">More detail leads to greater insights</span>
+                  <label className="block text-[10px] font-black uppercase tracking-widest text-slate-700 mb-4 pl-4">
+                    Additional Context (Optional) — <span className="text-blue-700 italic">More detail leads to greater insights</span>
                   </label>
                   <AutoTextArea 
                     value={answers[q.id]?.notes || ''}

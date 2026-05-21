@@ -25,6 +25,8 @@ import Navigation from './components/Navigation';
 import SurveyFlow from './components/Survey/SurveyFlow';
 import HealthCheckLanding from './pages/HealthCheckLanding';
 import PartnerLogos from './components/PartnerLogos';
+import PrismVisualizer from './components/PrismVisualizer';
+
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -217,43 +219,7 @@ const App = () => {
               <div className="absolute -top-10 -right-10 w-40 h-40 bg-blue-100 rounded-full blur-3xl opacity-60"></div>
               <div className="absolute -bottom-10 -left-10 w-40 h-40 bg-indigo-100 rounded-full blur-3xl opacity-60"></div>
               
-              <div className="relative glass rounded-[2.5rem] shadow-[0_32px_64px_-16px_rgba(0,0,0,0.1)] p-10 border border-white/50 translate-y-6 hover:translate-y-0 transition-transform duration-700 ease-out">
-                <div className="flex justify-between items-start mb-10">
-                  <div>
-                    <h3 className="text-sm font-black text-slate-400 uppercase tracking-[0.2em] mb-1">Forecast</h3>
-                    <p className="text-2xl font-black text-blue-950 font-display">Growth Velocity</p>
-                  </div>
-                  <div className="bg-emerald-50 text-emerald-600 px-3 py-1.5 rounded-lg text-xs font-black shadow-sm">
-                    +22.4%
-                  </div>
-                </div>
-                
-                <div className="h-48 flex items-end justify-between space-x-3 px-2 mb-10">
-                  {[35, 60, 40, 85, 50, 95].map((h, i) => (
-                    <div key={i} className="flex-1 bg-slate-100/50 rounded-xl relative overflow-hidden group h-full">
-                      <div 
-                        className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-blue-950 to-blue-700 transition-all duration-[1.5s] delay-700"
-                        style={{ height: `${h}%` }}
-                      ></div>
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between p-5 bg-blue-950/5 rounded-2xl border border-blue-950/5">
-                    <div className="flex items-center space-x-4">
-                      <div className="p-2.5 bg-blue-950 text-white rounded-xl shadow-lg"><TrendingUp size={18} /></div>
-                      <div>
-                        <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Optimisation status</p>
-                        <p className="text-sm font-black text-blue-950">Scale-Ready Core</p>
-                      </div>
-                    </div>
-                    <div className="w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-sm">
-                        <CheckCircle2 size={16} className="text-emerald-500" />
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <PrismVisualizer />
             </div>
           </div>
         </div>
