@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.4.1] - 2026-05-22
+
+### Added
+- **Loops Environment Setup:** Added `.env.local` / `.env.example` for `LOOPS_API_KEY` and transactional template IDs; documented Vercel deployment variables.
+- **Contact Form API:** Created `api/contact.js` to register visitors in Loops when they submit the Contact page form.
+
+### Changed
+- **Contact Form:** Replaced simulated submission with a live POST to `/api/contact` and user-facing error handling.
+- **Subscribe API:** Validates Loops API key and transactional template ID before sending diagnostic emails.
+
 ## [1.4.0] - 2026-05-22
 
 ### Added

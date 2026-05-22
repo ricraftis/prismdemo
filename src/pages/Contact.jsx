@@ -30,6 +30,8 @@ const Contact = ({ onBack, onHome, onBooking }) => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const handleCheckboxChange = (method) => {
     setFormData(prev => {
@@ -42,11 +44,30 @@ const Contact = ({ onBack, onHome, onBooking }) => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Simulate form submission
-    console.log('Form Data:', formData);
-    setIsSubmitted(true);
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        const data = await response.json().catch(() => ({}));
+        throw new Error(data.error || 'Failed to send message');
+      }
+
+      setIsSubmitted(true);
+    } catch (error) {
+      console.error('Contact form error:', error);
+      setSubmitError(error.message || 'Something went wrong. Please try again or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   if (isSubmitted) {
@@ -213,12 +234,18 @@ const Contact = ({ onBack, onHome, onBooking }) => {
                            </div>
                            <div className="w-6 h-6 bg-slate-200 rounded animate-pulse" />
                         </div>
+                        {submitError && (
+                          <p className="mb-4 text-sm font-bold text-red-600 text-center">{submitError}</p>
+                        )}
                         <button 
                           type="submit"
-                          className="w-full py-6 bg-[#00c1cf] text-white rounded-2xl font-black text-lg hover:bg-[#00a8b5] transition-all shadow-2xl hover:shadow-[#00c1cf]/20 flex items-center justify-center group active:scale-95"
+                          disabled={isSubmitting}
+                          className="w-full py-6 bg-[#00c1cf] text-white rounded-2xl font-black text-lg hover:bg-[#00a8b5] transition-all shadow-2xl hover:shadow-[#00c1cf]/20 flex items-center justify-center group active:scale-95 disabled:opacity-60 disabled:cursor-not-allowed"
                         >
-                          Send Message
-                          <Send size={20} className="ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                          {isSubmitting ? 'Sending...' : 'Send Message'}
+                          {!isSubmitting && (
+                            <Send size={20} className="ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                          )}
                         </button>
                      </div>
                   </form>

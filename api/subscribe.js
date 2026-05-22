@@ -12,6 +12,18 @@ export default async function handler(req, res) {
   const LOOPS_API_KEY = process.env.LOOPS_API_KEY;
   const TRANSACTIONAL_ID = process.env.LOOPS_TRANSACTIONAL_ID; // Your "Report" template ID from Loops
 
+  if (!LOOPS_API_KEY) {
+    return res.status(500).json({ error: 'Loops API key not configured' });
+  }
+
+  if (!TRANSACTIONAL_ID) {
+    return res.status(500).json({ error: 'Loops transactional template ID not configured' });
+  }
+
+  const nameParts = (name || '').trim().split(/\s+/).filter(Boolean);
+  const firstName = nameParts[0] || '';
+  const lastName = nameParts.slice(1).join(' ');
+
   try {
     // 1. Add to Audience (Single Opt-in)
     await fetch('https://app.loops.so/api/v1/contacts/create', {
@@ -22,8 +34,8 @@ export default async function handler(req, res) {
       },
       body: JSON.stringify({ 
         email, 
-        firstName: name.split(' ')[0], 
-        lastName: name.split(' ').slice(1).join(' '),
+        firstName, 
+        lastName,
         userGroup: 'SME Diagnostic',
         source: 'Website Diagnostic tool',
         subscribed: true 
